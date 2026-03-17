@@ -36,13 +36,13 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-tapex-primary">
+    <footer className="bg-[#111827]">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Top */}
         <div className="mb-12 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <span className="font-display text-3xl font-bold text-tapex-accent">TAPEX</span>
-            <p className="mt-2 text-sm text-tapex-muted">
+            <span className="font-display text-3xl text-white">TAPEX</span>
+            <p className="mt-2 text-sm text-gray-400">
               Prove Your Prompt. Power Your Future.
             </p>
           </div>
@@ -52,13 +52,13 @@ export default function Footer() {
         <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-4">
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h3 className="mb-4 text-sm font-semibold text-tapex-text">{group.title}</h3>
+              <h3 className="mb-4 text-sm font-semibold text-white">{group.title}</h3>
               <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-tapex-muted transition-colors hover:text-tapex-text"
+                      className="text-sm text-gray-400 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-tapex-border pt-8 text-center text-sm text-tapex-muted">
+        <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
           &copy; 2026 TAPEX. 한국경제신문 인증. All rights reserved.
         </div>
       </div>

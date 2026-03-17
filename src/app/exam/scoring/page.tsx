@@ -11,12 +11,12 @@ const fadeIn = {
 };
 
 const grades = [
-  { range: '10~199', name: 'Novice', badge: '', level: 'AI 도구 기본 인지', who: 'AI를 처음 접하는 분', color: 'bg-gray-500', textColor: 'text-gray-400' },
-  { range: '200~449', name: 'Developing', badge: '', level: '기본 프롬프트 작성', who: 'AI를 가끔 사용하는 분', color: 'bg-gray-400', textColor: 'text-gray-300' },
-  { range: '450~649', name: 'Bronze', badge: '', level: '구조화된 프롬프팅', who: '대학생·신입 수준의 AI 활용', color: 'bg-amber-700', textColor: 'text-amber-600' },
-  { range: '650~749', name: 'Silver', badge: '', level: '업무 AI 활용 능숙', who: '주니어~미드 직장인', color: 'bg-gray-300', textColor: 'text-gray-200' },
-  { range: '750~849', name: 'Gold', badge: '', level: 'AI 전략적 활용', who: '시니어·매니저급', color: 'bg-tapex-accent', textColor: 'text-tapex-accent' },
-  { range: '850~990', name: 'Platinum', badge: '', level: 'AI 오케스트레이션 마스터', who: '리더·전문가급', color: 'bg-cyan-300', textColor: 'text-cyan-300', shimmer: true },
+  { range: '10~199', name: 'Novice', level: 'AI 도구 기본 인지', who: 'AI를 처음 접하는 분', color: 'bg-gray-300', textColor: 'text-gray-500' },
+  { range: '200~449', name: 'Developing', level: '기본 프롬프트 작성', who: 'AI를 가끔 사용하는 분', color: 'bg-gray-400', textColor: 'text-gray-500' },
+  { range: '450~649', name: 'Bronze', level: '구조화된 프롬프팅', who: '대학생·신입 수준의 AI 활용', color: 'bg-amber-600', textColor: 'text-amber-700' },
+  { range: '650~749', name: 'Silver', level: '업무 AI 활용 능숙', who: '주니어~미드 직장인', color: 'bg-gray-400', textColor: 'text-gray-500' },
+  { range: '750~849', name: 'Gold', level: 'AI 전략적 활용', who: '시니어·매니저급', color: 'bg-tapex-accent', textColor: 'text-tapex-accent' },
+  { range: '850~990', name: 'Platinum', level: 'AI 오케스트레이션 마스터', who: '리더·전문가급', color: 'bg-tapex-primary', textColor: 'text-tapex-primary', shimmer: true },
 ];
 
 const microBadges = [
@@ -32,9 +32,9 @@ export default function ScoringPage() {
   return (
     <main className="pt-20">
       {/* Hero */}
-      <SectionWrapper>
+      <SectionWrapper className="bg-white">
         <motion.div {...fadeIn} className="text-center">
-          <h1 className="font-display text-4xl font-bold sm:text-5xl md:text-6xl">
+          <h1 className="font-display text-4xl text-tapex-text sm:text-5xl md:text-6xl">
             점수·등급 체계
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-tapex-muted">
@@ -44,36 +44,36 @@ export default function ScoringPage() {
       </SectionWrapper>
 
       {/* Grade Table */}
-      <SectionWrapper className="bg-tapex-primary/50">
-        <h2 className="font-display mb-8 text-2xl font-bold sm:text-3xl">990점 체계</h2>
+      <SectionWrapper className="bg-[#F8F9FA]">
+        <h2 className="font-display mb-8 text-2xl text-tapex-text sm:text-3xl">990점 체계</h2>
 
         {/* Bar */}
         <div className="mb-8 flex h-10 overflow-hidden rounded-xl">
           {grades.map((g, i) => (
             <div key={i} className={`${g.color} flex flex-1 items-center justify-center`}>
-              <span className="hidden text-xs font-bold text-tapex-primary sm:block">{g.name}</span>
+              <span className="hidden text-xs font-bold text-white sm:block">{g.name}</span>
             </div>
           ))}
         </div>
 
         {/* Table */}
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
           <table className="w-full min-w-[700px] text-sm">
             <thead>
-              <tr className="border-b border-tapex-border text-left">
-                <th className="p-4 text-tapex-muted">점수 범위</th>
-                <th className="p-4 text-tapex-muted">등급</th>
-                <th className="p-4 text-tapex-muted">수준</th>
-                <th className="p-4 text-tapex-muted">이런 분에게 해당합니다</th>
+              <tr className="border-b border-gray-200 text-left">
+                <th className="px-6 py-4 text-tapex-muted">점수 범위</th>
+                <th className="px-6 py-4 text-tapex-muted">등급</th>
+                <th className="px-6 py-4 text-tapex-muted">수준</th>
+                <th className="px-6 py-4 text-tapex-muted">이런 분에게 해당합니다</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-tapex-border/50">
+            <tbody className="divide-y divide-gray-100">
               {grades.map((g, i) => (
                 <tr key={i}>
-                  <td className="p-4 font-semibold text-tapex-text">{g.range}</td>
-                  <td className={`p-4 font-bold ${g.shimmer ? 'shimmer' : g.textColor}`}>{g.name}</td>
-                  <td className="p-4 text-tapex-muted">{g.level}</td>
-                  <td className="p-4 text-tapex-muted">{g.who}</td>
+                  <td className="px-6 py-4 font-semibold text-tapex-text">{g.range}</td>
+                  <td className={`px-6 py-4 font-bold ${g.shimmer ? 'shimmer' : g.textColor}`}>{g.name}</td>
+                  <td className="px-6 py-4 text-tapex-muted">{g.level}</td>
+                  <td className="px-6 py-4 text-tapex-muted">{g.who}</td>
                 </tr>
               ))}
             </tbody>
@@ -82,13 +82,13 @@ export default function ScoringPage() {
 
         <div className="mt-6 space-y-2 text-sm text-tapex-muted">
           <p>* 449점 이하는 등급이 부여되지 않습니다 (점수 리포트만 제공)</p>
-          <p>* 950점 이상은 Platinum 내 <span className="font-semibold text-tapex-accent">Apex</span> 뱃지로 상위 1%를 별도 표시합니다</p>
+          <p>* 950점 이상은 Platinum 내 <span className="font-semibold text-tapex-primary">Apex</span> 뱃지로 상위 1%를 별도 표시합니다</p>
         </div>
       </SectionWrapper>
 
       {/* Micro Badges */}
-      <SectionWrapper>
-        <h2 className="font-display mb-4 text-2xl font-bold sm:text-3xl">직무별 마이크로 배지</h2>
+      <SectionWrapper className="bg-white">
+        <h2 className="font-display mb-4 text-2xl text-tapex-text sm:text-3xl">직무별 마이크로 배지</h2>
         <p className="mb-8 text-tapex-muted">
           본시험 점수와 별개로, 섹션별 성적을 기반으로 직무 특화 배지를 추가 발급합니다.
         </p>
@@ -98,9 +98,9 @@ export default function ScoringPage() {
               key={i}
               {...fadeIn}
               transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border border-tapex-border bg-tapex-card p-6"
+              className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
             >
-              <h3 className="mb-2 font-mono text-sm font-bold text-tapex-accent">{b.badge}</h3>
+              <h3 className="mb-2 font-mono text-sm font-bold text-tapex-primary">{b.badge}</h3>
               <p className="text-sm text-tapex-text">{b.area}</p>
               <p className="mt-2 text-xs text-tapex-muted">{b.job}</p>
             </motion.div>
@@ -109,8 +109,8 @@ export default function ScoringPage() {
       </SectionWrapper>
 
       {/* Blockchain Cert */}
-      <SectionWrapper className="bg-tapex-primary/50">
-        <h2 className="font-display mb-4 text-2xl font-bold sm:text-3xl">블록체인 디지털 자격증</h2>
+      <SectionWrapper className="bg-[#F8F9FA]">
+        <h2 className="font-display mb-4 text-2xl text-tapex-text sm:text-3xl">블록체인 디지털 자격증</h2>
         <p className="mb-8 text-tapex-muted">
           TAPEX 자격증은 블록체인에 기록됩니다. 위변조가 불가능하고, 누구나 원클릭으로 진위를 검증할 수 있습니다.
         </p>
@@ -126,9 +126,9 @@ export default function ScoringPage() {
               key={i}
               {...fadeIn}
               transition={{ delay: i * 0.08 }}
-              className="rounded-xl border border-tapex-border bg-tapex-card p-5"
+              className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
             >
-              <h3 className="font-semibold text-tapex-accent">{item.title}</h3>
+              <h3 className="font-semibold text-tapex-primary">{item.title}</h3>
               <p className="mt-1 text-sm text-tapex-muted">{item.desc}</p>
             </motion.div>
           ))}

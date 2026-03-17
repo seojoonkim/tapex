@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Playfair_Display } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import './globals.css';
 
-const playfair = Playfair_Display({
-  variable: '--font-playfair',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
-  weight: ['400', '600', '700', '900'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={playfair.variable}>
+    <html lang="ko" className={inter.variable}>
       <body className="antialiased">
         <NavBar />
         {children}

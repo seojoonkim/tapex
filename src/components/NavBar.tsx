@@ -23,15 +23,13 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-tapex-primary/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
+        scrolled ? 'shadow-sm border-b border-gray-200' : 'border-b border-gray-100'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="font-display text-2xl font-bold text-tapex-accent">
+          <Link href="/" className="font-display text-2xl text-tapex-primary">
             TAPEX
           </Link>
 
@@ -41,14 +39,14 @@ export default function NavBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-tapex-muted transition-colors hover:text-tapex-text"
+                className="text-sm text-gray-700 transition-colors hover:text-tapex-primary"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="#register"
-              className="rounded-full bg-tapex-accent px-5 py-2 text-sm font-semibold text-tapex-primary transition-all hover:brightness-110"
+              className="rounded-full bg-tapex-primary px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-tapex-primary/90"
             >
               시험 접수
             </Link>
@@ -56,7 +54,7 @@ export default function NavBar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-tapex-text"
+            className="md:hidden text-gray-700"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="메뉴 열기"
           >
@@ -72,12 +70,12 @@ export default function NavBar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="border-t border-tapex-border pb-4 md:hidden">
+          <div className="border-t border-gray-100 pb-4 md:hidden">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-3 text-tapex-muted transition-colors hover:text-tapex-text"
+                className="block px-4 py-3 text-gray-700 transition-colors hover:text-tapex-primary"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -86,7 +84,7 @@ export default function NavBar() {
             <div className="px-4 pt-2">
               <Link
                 href="#register"
-                className="block rounded-full bg-tapex-accent py-2 text-center text-sm font-semibold text-tapex-primary"
+                className="block rounded-full bg-tapex-primary py-2 text-center text-sm font-semibold text-white"
                 onClick={() => setMenuOpen(false)}
               >
                 시험 접수
