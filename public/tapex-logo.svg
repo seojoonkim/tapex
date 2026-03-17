@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" fill="none">
-  <text x="0" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#0F172A">T</text>
-  <text x="22" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#C9A84C">A</text>
-  <text x="44" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#0F172A">PEX</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <text x="0" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#0F172A">TAPEX</text>
+  <rect x="0" y="34" width="120" height="3" rx="1.5" fill="url(#gold)"/>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#F0D080" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
 </svg>
