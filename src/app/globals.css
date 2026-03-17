@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,54 +6,34 @@
 
 :root {
   --tapex-bg: #FFFFFF;
-  --tapex-bg-alt: #F7F8FA;
-  --tapex-navy: #1B3A6B;
+  --tapex-bg-alt: #F8FAFC;
+  --tapex-navy: #0F172A;
+  --tapex-navy-mid: #1B3A6B;
   --tapex-accent: #C9A84C;
-  --tapex-text: #111827;
-  --tapex-muted: #6B7280;
-  --tapex-border: #E5E7EB;
+  --tapex-text: #0F172A;
+  --tapex-muted: #64748B;
+  --tapex-border: #F1F5F9;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 * { box-sizing: border-box; }
 
+a { text-decoration: none; color: inherit; }
+
 body {
   background: #ffffff;
-  color: #111827;
-  font-family: 'Pretendard Variable', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0F172A;
+  font-family: 'DM Sans', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.font-display {
-  font-family: 'Inter', 'Pretendard Variable', sans-serif;
-  font-weight: 800;
-}
-
-.text-gradient-gold {
-  background: linear-gradient(135deg, #C9A84C, #E8D48B, #C9A84C);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.shimmer {
-  background: linear-gradient(90deg, #94A3B8, #E2E8F0, #94A3B8, #E2E8F0);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
-.animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
-
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #F8F9FA; }
-::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
