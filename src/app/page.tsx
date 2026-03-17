@@ -252,7 +252,7 @@ function HeroSection() {
         position: 'relative',
       }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A84C', display: 'inline-block', boxShadow: '0 0 8px rgba(201,168,76,0.5)' }} />
-        한국경제신문 인증 · 세계 최초 4대 LLM 통합 시험
+        한국경제신문 인증 · 세계 최초 AI 프롬프트 역량 인증 시험
       </div>
 
       {/* Headline */}
@@ -286,8 +286,8 @@ function HeroSection() {
         fontWeight: 400,
         position: 'relative',
       }}>
-        ChatGPT · Claude · Gemini · Grok<br />
-        4대 AI를 실전에서 다루는 능력을 측정하는 세계 최초의 AI 활용 능력 인증 시험
+        프롬프트 설계부터 데이터 분석, 코드 생성까지<br />
+        6가지 핵심 역량으로 측정하는 세계 최초의 AI 활용 능력 인증 시험
       </p>
 
       {/* CTA */}
@@ -361,7 +361,7 @@ function StatsSection() {
   const stats = [
     { num: '80문항', desc: '실전 프롬프팅 · 이론 · 시나리오', icon: '📋' },
     { num: '990점', desc: 'TOEIC과 동일한 세밀한 척도', icon: '📊' },
-    { num: '4 LLM', desc: '벤더 중립 범용 역량 평가', icon: '🤖' },
+    { num: '6개', desc: '역량 카테고리 범위 측정', icon: '🤖' },
     { num: '2년', desc: 'AI 기술 변화 반영 갱신 주기', icon: '🔄' },
   ];
 
@@ -714,91 +714,107 @@ function PersonaSection() {
   );
 }
 
-/* ─── LLM Section ─── */
-function LLMSection() {
+/* ─── Exam Categories ─── */
+function ExamCategorySection() {
   const isMobile = useIsMobile();
-  const llms = [
-    { section: 'A', name: 'ChatGPT', sub: '범용 대화', color: '#10A37F', desc: '범용 프롬프팅 · 멀티턴 대화 설계 · 함수 호출 · 출력 구조화' },
-    { section: 'B', name: 'Claude', sub: '장문 분석', color: '#D97706', desc: '장문 문서 분석 · 코드 리뷰 · 추론 체인 설계 · 시스템 프롬프트 최적화' },
-    { section: 'C', name: 'Gemini', sub: '멀티모달', color: '#1A73E8', desc: '멀티모달 입력 · Google 검색 연동 · 실시간 데이터 활용 · 시각화 지시' },
-    { section: 'D', name: 'Grok', sub: '크로스-LLM', color: '#E66C37', desc: '실시간 트렌드 반영 · 크로스 모델 전략 · LLM 한계 우회 · 모델 전환 최적화' },
+  const categories = [
+    {
+      code: '01',
+      name: '프롬프트 설계',
+      sub: 'Prompt Engineering',
+      color: '#1B3A6B',
+      desc: '명확한 지시문 작성, 컨텍스트 구성, 멀티턴 대화 설계 및 출력 구조화 능력을 평가합니다.',
+    },
+    {
+      code: '02',
+      name: '데이터 분석',
+      sub: 'Data Analysis',
+      color: '#059669',
+      desc: 'AI를 활용한 데이터 해석, 인사이트 도출, 시각화 지시 및 통계적 추론 활용 능력을 평가합니다.',
+    },
+    {
+      code: '03',
+      name: '코드 생성·디버깅',
+      sub: 'Code & Debug',
+      color: '#7C3AED',
+      desc: '코드 작성 지시, 오류 수정 요청, 리팩토링 설계, 기술 문서 요약 활용 능력을 평가합니다.',
+    },
+    {
+      code: '04',
+      name: '비즈니스 문서',
+      sub: 'Business Writing',
+      color: '#C9A84C',
+      desc: '기획서, 보고서, 이메일, 제안서 등 업무 문서 작성을 AI로 효율화하는 능력을 평가합니다.',
+    },
+    {
+      code: '05',
+      name: '창작·콘텐츠',
+      sub: 'Creative Content',
+      color: '#E11D48',
+      desc: '카피라이팅, SNS 콘텐츠, 스크립트, 브레인스토밍 등 창의적 결과물 생성 능력을 평가합니다.',
+    },
+    {
+      code: '06',
+      name: '멀티모달·고급',
+      sub: 'Multimodal & Advanced',
+      color: '#0284C7',
+      desc: '이미지·음성 입력 활용, 에이전트 설계, 워크플로우 자동화 등 고급 AI 활용 능력을 평가합니다.',
+    },
   ];
 
   const sectionFade = useScrollFadeIn();
 
   return (
-    <section style={{
-      background: '#F8FAFC',
-      padding: isMobile ? '80px 20px' : '120px 48px',
-      position: 'relative',
-    }}>
-      {/* Top accent line */}
-      <div style={{
-        position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-        width: 80, height: 3, background: 'linear-gradient(90deg, #C9A84C, #F0D080)',
-        borderRadius: 2,
-      }} />
-
+    <section style={{ background: '#F8FAFC', padding: isMobile ? '80px 20px' : '120px 48px' }}>
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto' }}>
-        <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>4 LLMs</p>
+        <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>EXAM STRUCTURE</p>
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
-          color: '#0F172A', textAlign: 'center', marginBottom: 16,
+          color: '#0F172A', textAlign: 'center', marginBottom: 12,
           letterSpacing: '-0.04em', fontFamily: FONT,
-        }}>4대 LLM으로 측정합니다</h2>
-        <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 56, lineHeight: 1.8 }}>
-          특정 AI에 종속되지 않는 — 범용 AI 리터러시를 평가합니다
+        }}>6가지 역량으로 측정합니다</h2>
+        <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 16, lineHeight: 1.8 }}>
+          사용할 AI 모델은 수험생이 자유롭게 선택
         </p>
+        {/* LLM choice badge */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 56 }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            background: '#0F172A', borderRadius: 100,
+            padding: '10px 24px',
+          }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.05em' }}>지원 모델</span>
+            {['ChatGPT', 'Claude', 'Gemini', 'Grok'].map((m, i) => (
+              <span key={i} style={{
+                fontSize: 12, fontWeight: 700, color: '#C9A84C',
+                background: 'rgba(201,168,76,0.12)',
+                borderRadius: 6, padding: '2px 10px',
+              }}>{m}</span>
+            ))}
+          </div>
+        </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)', gap: 20 }}>
-          {llms.map((l, i) => (
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 16 }}>
+          {categories.map((c, i) => (
             <div key={i} style={{
-              background: '#fff', borderRadius: 20, padding: '36px 28px',
-              boxShadow: '0 1px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)',
-              border: '1px solid #F1F5F9',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-              position: 'relative' as const,
-              overflow: 'hidden' as const,
+              background: '#fff', borderRadius: 16,
+              padding: isMobile ? '24px 20px' : '32px 28px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)',
+              borderTop: `3px solid ${c.color}`,
+              transition: 'transform 0.2s, box-shadow 0.2s',
             }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.1)';
-                e.currentTarget.style.borderColor = `${l.color}40`;
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)';
-                e.currentTarget.style.borderColor = '#F1F5F9';
-              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)'; }}
             >
-              {/* Top accent */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0,
-                height: 3, background: `linear-gradient(90deg, ${l.color}, ${l.color}60)`,
-              }} />
-
-              <div style={{
-                width: 48, height: 48, borderRadius: 14,
-                background: `${l.color}10`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                marginBottom: 20,
-              }}>
-                <span style={{ fontSize: 13, fontWeight: 900, color: l.color, fontFamily: FONT }}>
-                  {l.section}
-                </span>
-              </div>
-
-              <div style={{
-                fontWeight: 800, fontSize: 22, color: '#0F172A',
-                marginBottom: 8, letterSpacing: '-0.04em', fontFamily: FONT,
-              }}>{l.name}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: c.color, letterSpacing: '0.1em', marginBottom: 10 }}>{c.code}</div>
+              <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 4, letterSpacing: '-0.03em', fontFamily: FONT }}>{c.name}</div>
               <div style={{
                 display: 'inline-block',
-                background: `${l.color}10`, color: l.color,
-                borderRadius: 8, padding: '4px 12px',
-                fontSize: 12, fontWeight: 600, marginBottom: 20,
-              }}>{l.sub}</div>
-              <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.8 }}>{l.desc}</p>
+                background: `${c.color}10`, color: c.color,
+                borderRadius: 6, padding: '2px 10px',
+                fontSize: 11, fontWeight: 600, marginBottom: 16,
+              }}>{c.sub}</div>
+              <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.8, margin: 0 }}>{c.desc}</p>
             </div>
           ))}
         </div>
@@ -1350,7 +1366,7 @@ export default function Home() {
       <SectionDivider color="#E2E8F0" />
       <PersonaSection />
       <SectionDivider />
-      <LLMSection />
+      <ExamCategorySection />
       <SectionDivider color="#E2E8F0" />
       <GradeSection />
       <SectionDivider />
