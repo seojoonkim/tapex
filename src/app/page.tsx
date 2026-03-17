@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 /* ─── Fade-in hook ─── */
 function useFadeIn(delay = 0) {
@@ -717,6 +717,58 @@ function PersonaSection() {
 }
 
 /* ─── Exam Categories ─── */
+/* ─── Category SVG Icons ─── */
+const CategoryIcons: Record<string, React.ReactElement> = {
+  '01': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <rect x="4" y="8" width="32" height="24" rx="4" stroke="#1B3A6B" strokeWidth="2.5"/>
+      <path d="M10 16h6M10 20h10M10 24h7" stroke="#1B3A6B" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M24 15l4 5-4 5" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  '02': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M8 30L16 20l6 6 6-8 6 8" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="8" cy="30" r="2" fill="#059669"/>
+      <circle cx="16" cy="20" r="2" fill="#059669"/>
+      <circle cx="22" cy="26" r="2" fill="#059669"/>
+      <circle cx="28" cy="18" r="2" fill="#059669"/>
+      <circle cx="34" cy="22" r="2" fill="#C9A84C"/>
+      <path d="M8 34h24" stroke="#059669" strokeWidth="1.5" strokeOpacity="0.3"/>
+    </svg>
+  ),
+  '03': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M14 13l-6 7 6 7" stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M26 13l6 7-6 7" stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M22 10l-4 20" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round"/>
+    </svg>
+  ),
+  '04': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <rect x="6" y="6" width="28" height="34" rx="3" stroke="#C9A84C" strokeWidth="2.5"/>
+      <path d="M12 14h16M12 19h16M12 24h10" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="30" cy="30" r="6" fill="#0F172A"/>
+      <path d="M27 30l2 2 4-4" stroke="#C9A84C" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  '05': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M20 8c-6.6 0-12 5.4-12 12 0 4 2 7.5 5 9.6V32h14v-2.4c3-2.1 5-5.6 5-9.6 0-6.6-5.4-12-12-12z" stroke="#E11D48" strokeWidth="2.5"/>
+      <path d="M16 32v3h8v-3" stroke="#E11D48" strokeWidth="2"/>
+      <path d="M17 20c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  ),
+  '06': (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <rect x="6" y="10" width="20" height="14" rx="3" stroke="#0284C7" strokeWidth="2.5"/>
+      <path d="M26 14l8-4v16l-8-4" stroke="#0284C7" strokeWidth="2.5" strokeLinejoin="round"/>
+      <circle cx="16" cy="17" r="3" fill="#0284C7" fillOpacity="0.2" stroke="#0284C7" strokeWidth="1.5"/>
+      <path d="M8 28h12M8 31h8" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  ),
+};
+
 function ExamCategorySection() {
   const isMobile = useIsMobile();
   const categories = [
@@ -800,16 +852,18 @@ function ExamCategorySection() {
           {categories.map((c, i) => (
             <div key={i} style={{
               background: '#fff', borderRadius: 16,
-              padding: isMobile ? '24px 20px' : '32px 28px',
+              padding: isMobile ? '28px 24px' : '36px 32px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)',
-              borderTop: `3px solid ${c.color}`,
+              border: '1px solid #F1F5F9',
               transition: 'transform 0.2s, box-shadow 0.2s',
             }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)'; }}
             >
-              <div style={{ fontSize: 11, fontWeight: 700, color: c.color, letterSpacing: '0.1em', marginBottom: 10 }}>{c.code}</div>
-              <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 4, letterSpacing: '-0.03em', fontFamily: FONT }}>{c.name}</div>
+              {/* SVG Icon */}
+              <div style={{ marginBottom: 20 }}>{CategoryIcons[c.code]}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: c.color, letterSpacing: '0.1em', marginBottom: 8 }}>{c.code}</div>
+              <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 8, letterSpacing: '-0.03em', fontFamily: FONT }}>{c.name}</div>
               <div style={{
                 display: 'inline-block',
                 background: `${c.color}10`, color: c.color,
