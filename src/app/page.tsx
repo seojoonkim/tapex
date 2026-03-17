@@ -8,7 +8,8 @@ const NAVY = '#1B3A6B';
 const GOLD = '#C9A84C';
 const BG_ALT = '#F7F8FA';
 
-function fadeUp(delay = 0) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function fadeUp(delay = 0): any {
   return {
     initial: { opacity: 0, y: 32 },
     whileInView: { opacity: 1, y: 0 },
