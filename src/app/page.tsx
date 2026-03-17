@@ -476,10 +476,10 @@ function PartnerSection() {
     <section style={{ background: '#fff', padding: '64px 48px', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 11, letterSpacing: '0.25em', color: '#94A3B8', textTransform: 'uppercase' as const, marginBottom: 40, fontWeight: 600 }}>인증 파트너</p>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 72, flexWrap: 'wrap' }}>
-          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 44, objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.5 }} />
-          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 36, objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.5 }} />
-          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 36, objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.5 }} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 64, flexWrap: 'wrap' }}>
+          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.55 }} />
+          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.55 }} />
+          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%) contrast(1.3)', opacity: 0.55, mixBlendMode: 'multiply' }} />
         </div>
       </div>
     </section>
