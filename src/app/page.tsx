@@ -886,12 +886,12 @@ function ExamCategorySection() {
 function GradeSection() {
   const isMobile = useIsMobile();
   const grades = [
-    { range: '850~990', name: 'Platinum', color: '#7C3AED', desc: 'AI 오케스트레이션 마스터 — 상위 1%', bar: '95%' },
-    { range: '750~849', name: 'Gold', color: '#C9A84C', desc: '전략적 AI 활용 — 팀 리더·시니어 수준', bar: '80%' },
-    { range: '650~749', name: 'Silver', color: '#64748B', desc: '업무에 즉시 AI를 적용할 수 있는 실무 역량', bar: '65%' },
-    { range: '450~649', name: 'Bronze', color: '#B45309', desc: '실무 기초 수준 — 신입 AI 활용자로 인정', bar: '50%' },
-    { range: '200~449', name: 'Developing', color: '#94A3B8', desc: '단순 지시는 가능하나 구조화 능력 미흡', bar: '30%' },
-    { range: '10~199', name: 'Novice', color: '#CBD5E1', desc: 'AI 도구의 기본 개념을 이해하는 단계', bar: '15%' },
+    { range: '900~990', name: 'Platinum', color: '#7C3AED', desc: 'AI를 전략적으로 설계하고 조율하는 최상위 역량 — 상위 1%', bar: '95%' },
+    { range: '800~899', name: 'Gold', color: '#C9A84C', desc: 'AI를 업무 전반에 자유롭게 적용하는 팀 리더·시니어 수준', bar: '80%' },
+    { range: '700~799', name: 'Silver', color: '#64748B', desc: 'AI를 실무에 즉시 투입할 수 있는 검증된 활용 역량', bar: '65%' },
+    { range: '600~699', name: 'Bronze', color: '#B45309', desc: 'AI 활용의 실무 기초를 갖춘 입문 전문가 수준', bar: '50%' },
+    { range: '500~599', name: 'Developing', color: '#94A3B8', desc: 'AI 도구를 인식하고 기초적인 활용을 시작한 단계', bar: '30%' },
+    { range: '499 이하', name: 'Novice', color: '#CBD5E1', desc: 'AI를 본격적으로 배우고 익혀가는 학습 단계', bar: '15%' },
   ];
 
   const sectionFade = useScrollFadeIn();
@@ -1106,9 +1106,9 @@ function PartnerSection() {
 function CertificationBadgeSection() {
   const isMobile = useIsMobile();
   const badges = [
-    { level: 'Platinum', color: '#7C3AED', range: '850~990', icon: '◆' },
-    { level: 'Gold', color: '#C9A84C', range: '750~849', icon: '★' },
-    { level: 'Silver', color: '#64748B', range: '650~749', icon: '●' },
+    { level: 'Platinum', color: '#7C3AED', range: '900~990', icon: '◆' },
+    { level: 'Gold', color: '#C9A84C', range: '800~899', icon: '★' },
+    { level: 'Silver', color: '#64748B', range: '700~799', icon: '●' },
   ];
 
   const sectionFade = useScrollFadeIn();
