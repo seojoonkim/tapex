@@ -97,7 +97,10 @@ function NavBar() {
         transition: 'all 0.3s ease',
         boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,0.04)' : 'none',
       }}>
-        <img src="/tapex-logo.svg" alt="TAPEX" style={{ height: 32, width: 'auto' }} />
+        <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: 22, letterSpacing: '-0.04em', color: '#0F172A', display: 'flex', alignItems: 'center', gap: 0, position: 'relative' }}>
+          TAPEX
+          <span style={{ position: 'absolute', bottom: -4, left: 0, width: '100%', height: 2.5, background: 'linear-gradient(90deg, #C9A84C, rgba(240,208,128,0.3))', borderRadius: 2 }} />
+        </span>
 
         {/* Desktop menu */}
         {!isMobile && (
@@ -1090,9 +1093,9 @@ function PartnerSection() {
       <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 11, letterSpacing: '0.25em', color: '#94A3B8', textTransform: 'uppercase' as const, marginBottom: 40, fontWeight: 600 }}>인증 파트너</p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 64, flexWrap: 'wrap' }}>
-          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.55 }} />
-          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.55 }} />
-          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 36, width: 'auto', objectFit: 'contain', filter: 'grayscale(100%) contrast(1.3)', opacity: 0.55, mixBlendMode: 'multiply' as const }} />
+          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 40, maxWidth: 160, objectFit: 'contain', opacity: 0.7 }} />
+          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 40, maxWidth: 160, objectFit: 'contain', opacity: 0.7 }} />
+          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 40, maxWidth: 160, objectFit: 'contain', opacity: 0.7 }} />
         </div>
       </div>
     </section>
@@ -1332,7 +1335,7 @@ function FooterSection() {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(160px, 1fr))', gap: isMobile ? 32 : 48, marginBottom: isMobile ? 40 : 64 }}>
           {/* Brand column */}
           <div>
-            <img src="/tapex-logo.svg" alt="TAPEX" style={{ height: 28, width: 'auto', marginBottom: 16, filter: 'brightness(0) invert(1)' }} />
+            <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: 20, letterSpacing: '-0.04em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
             <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, marginBottom: 16 }}>
               Test of AI Prompt EXpertise<br />
               세계 최초 AI 활용 능력 인증 시험
