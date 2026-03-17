@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-tapex-bg: #030B17;
+  --color-tapex-primary: #0A1628;
+  --color-tapex-secondary: #1E3A5F;
+  --color-tapex-accent: #C9A84C;
+  --color-tapex-card: #0D1F35;
+  --color-tapex-border: #1E3A5F;
+  --color-tapex-text: #F8F9FA;
+  --color-tapex-muted: #94A3B8;
+}
+
+:root {
+  --color-bg: #030B17;
+  --color-primary: #0A1628;
+  --color-secondary: #1E3A5F;
+  --color-accent: #C9A84C;
+  --color-card: #0D1F35;
+  --color-text: #F8F9FA;
+  --color-muted: #94A3B8;
+  --color-border: #1E3A5F;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+/* Glow effect */
+.glow-accent {
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
+}
+
+/* Gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C9A84C, #E8D48B, #C9A84C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated scroll indicator */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Platinum shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #E5E7EB, #F9FAFB, #E5E7EB, #F9FAFB);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
