@@ -477,6 +477,8 @@ function WhyTapexSection() {
 
   const comparisons = [
     { label: 'TOEIC', desc: '영어 능력', icon: 'EN', active: false },
+    { label: 'TOEFL', desc: '영어 학술 역량', icon: 'EN', active: false },
+    { label: '엑셀 인증', desc: 'Office 활용 능력', icon: 'XL', active: false },
     { label: '코딩 테스트', desc: '개발 역량', icon: '<>', active: false },
     { label: 'TAPEX', desc: 'AI 활용 능력', icon: 'AI', active: true },
   ];
@@ -519,7 +521,7 @@ function WhyTapexSection() {
             같은 ChatGPT를 써도, 프롬프트 하나 차이로 결과물의 품질은 <strong style={{ color: '#0F172A', fontSize: '110%' }}>10배</strong>가 벌어집니다.
           </p>
           <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
-            영어 능력엔 TOEIC, 개발 역량엔 코딩 테스트가 있습니다.
+            영어 능력엔 TOEIC·TOEFL, 엑셀엔 MOS, 개발 역량엔 코딩 테스트가 있습니다.
             그런데 AI 활용 능력을 객관적으로 측정하는 표준은 — 지금까지 없었습니다.
           </p>
           <p style={{
