@@ -35,6 +35,18 @@ function useCountUp(target: number, _duration = 2000) {
 
 const FONT = "'DM Sans', 'Noto Sans KR', -apple-system, sans-serif";
 
+/* ─── Mobile detection hook ─── */
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return mobile;
+}
+
 /* ─── NavBar ─── */
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -71,7 +83,7 @@ function NavBar() {
         borderBottom: scrolled ? '1px solid rgba(0,0,0,0.08)' : '1px solid rgba(0,0,0,0.04)',
         height: 72,
         display: 'flex', alignItems: 'center',
-        padding: '0 48px',
+        padding: isMobile ? '0 20px' : '0 48px',
         transition: 'all 0.3s ease',
       }}>
         <img src="/tapex-logo.svg" alt="TAPEX" style={{ height: 32, width: 'auto' }} />
@@ -160,6 +172,7 @@ function HeroSection() {
   const fade1 = useFadeIn(100);
   const fade2 = useFadeIn(300);
   const fade3 = useFadeIn(500);
+  const isMobile = useIsMobile();
 
   return (
     <section style={{
@@ -167,7 +180,7 @@ function HeroSection() {
       background: 'linear-gradient(135deg, #0A1628 0%, #162B4A 60%, #1B3A6B 100%)',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center',
-      padding: '120px 48px 80px',
+      padding: isMobile ? '100px 20px 60px' : '120px 48px 80px',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
@@ -282,6 +295,7 @@ function HeroSection() {
 
 /* ─── Stats ─── */
 function StatsSection() {
+  const isMobile = useIsMobile();
   const stats = [
     { num: '80문항', desc: '실전 프롬프팅 · 이론 · 시나리오' },
     { num: '990점', desc: 'TOEIC과 동일한 세밀한 척도' },
@@ -290,18 +304,19 @@ function StatsSection() {
   ];
 
   return (
-    <section style={{ background: '#fff', padding: '80px 48px', borderBottom: '1px solid #F1F5F9' }}>
+    <section style={{ background: '#fff', padding: isMobile ? '60px 20px' : '80px 48px', borderBottom: '1px solid #F1F5F9' }}>
       <div style={{
         maxWidth: 1200, margin: '0 auto',
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+        display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
       }}>
         {stats.map((s, i) => (
           <div key={i} style={{
             textAlign: 'center', padding: '24px 16px',
-            borderRight: i < 3 ? '1px solid #F1F5F9' : 'none',
+            borderRight: isMobile ? 'none' : (i < 3 ? '1px solid #F1F5F9' : 'none'),
+            borderBottom: isMobile && i < 2 ? '1px solid #F1F5F9' : 'none',
           }}>
             <div style={{
-              fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900,
+              fontSize: 'clamp(26px, 4vw, 48px)', fontWeight: 900,
               color: '#0F172A', letterSpacing: '-0.04em', lineHeight: 1,
               fontFamily: FONT,
             }}>{s.num}</div>
@@ -315,6 +330,7 @@ function StatsSection() {
 
 /* ─── Trust Numbers ─── */
 function TrustNumbersSection() {
+  const isMobile = useIsMobile();
   const items = [
     { target: 12000, suffix: '+', label: '사전 등록자' },
     { target: 50, suffix: '+', label: '기업 파트너' },
@@ -330,16 +346,16 @@ function TrustNumbersSection() {
   const sectionFade = useScrollFadeIn();
 
   return (
-    <section style={{ background: '#0F172A', padding: '120px 48px' }}>
+    <section style={{ background: '#0F172A', padding: isMobile ? '80px 20px' : '120px 48px' }}>
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 12 }}>TRUST IN NUMBERS</p>
         <h2 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
-          color: '#fff', marginBottom: 64,
+          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          color: '#fff', marginBottom: isMobile ? 40 : 64,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>숫자로 보는 TAPEX</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 24 : 32 }}>
           {items.map((item, i) => (
             <div key={i} ref={counters[i].ref} style={{ textAlign: 'center' }}>
               <div style={{
@@ -362,27 +378,28 @@ function TrustNumbersSection() {
 /* ─── Why TAPEX ─── */
 function WhyTapexSection() {
   const sectionFade = useScrollFadeIn();
+  const isMobile = useIsMobile();
 
   return (
-    <section id="exam" style={{ background: '#F8FAFC', padding: '120px 48px' }}>
-      <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
+    <section id="exam" style={{ background: '#F8FAFC', padding: isMobile ? '80px 20px' : '120px 48px' }}>
+      <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: isMobile ? 'column-reverse' : 'row', flexWrap: 'wrap', gap: isMobile ? 40 : 64, alignItems: 'center' }}>
         {/* Left text */}
         <div style={{ flex: '1 1 440px' }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 16 }}>WHY TAPEX</p>
           <h2 style={{
-            fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+            fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
           }}>일은 이미<br />AI가 하고 있다</h2>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
+          <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
             보고서, 코드, 데이터 분석 — 지금 당신의 업무 절반은 이미 AI가 처리할 수 있습니다.
           </p>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
+          <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
             문제는 &lsquo;어떤 AI를 쓰는가&rsquo;가 아니라, &lsquo;어떻게 시키는가&rsquo;입니다.
             같은 ChatGPT를 써도, 프롬프트 하나 차이로 결과물의 품질은 <strong style={{ color: '#0F172A' }}>10배</strong>가 벌어집니다.
           </p>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
+          <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
             영어 능력엔 TOEIC, 개발 역량엔 코딩 테스트가 있습니다.
             그런데 AI 활용 능력을 객관적으로 측정하는 표준은 — 지금까지 없었습니다.
           </p>
@@ -437,11 +454,12 @@ function WhyTapexSection() {
 
 /* ─── Persona Cards ─── */
 function PersonaSection() {
+  const isMobile = useIsMobile();
   const personas = [
-    { title: '취준생 · 대학생', icon: '🎓', quote: '"AI 잘 쓴다고 써봤는데, 증명할 방법이 없더라고요."', detail: 'TAPEX Bronze(450점+)면 서류 통과율이 달라집니다. 학생 40% 할인, 링크드인 배지 발급.', accent: '#C9A84C' },
-    { title: '직장인 · 이직자', icon: '💼', quote: '"팀에서 제가 AI 제일 잘 쓰는데, 아무도 몰라요."', detail: 'TAPEX Gold(750점+)로 승진 심사, 연봉 협상, 이직 시 즉시 활용 가능한 스펙.', accent: '#1B3A6B' },
-    { title: '프리랜서 · 크리에이터', icon: '🎨', quote: '"클라이언트가 AI 쓸 수 있냐고 물어보는데."', detail: 'TAPEX 점수 + 직무별 마이크로 배지로 포트폴리오를 강화하세요.', accent: '#7C3AED' },
-    { title: '기업 HR · 교육 담당', icon: '🏢', quote: '"AI 활용 가능이 50%인데, 누구를 믿죠?"', detail: 'TAPEX for Recruit API로 지원자 점수를 자동 검증. 잡코리아·사람인 연동.', accent: '#059669' },
+    { title: '취준생 · 대학생', quote: '"AI 잘 쓴다고 써봤는데, 증명할 방법이 없더라고요."', detail: 'TAPEX Bronze(450점+)면 서류 통과율이 달라집니다. 학생 40% 할인, 링크드인 배지 발급.', accent: '#C9A84C' },
+    { title: '직장인 · 이직자', quote: '"팀에서 제가 AI 제일 잘 쓰는데, 아무도 몰라요."', detail: 'TAPEX Gold(750점+)로 승진 심사, 연봉 협상, 이직 시 즉시 활용 가능한 스펙.', accent: '#1B3A6B' },
+    { title: '프리랜서 · 크리에이터', quote: '"클라이언트가 AI 쓸 수 있냐고 물어보는데."', detail: 'TAPEX 점수 + 직무별 마이크로 배지로 포트폴리오를 강화하세요.', accent: '#7C3AED' },
+    { title: '기업 HR · 교육 담당', quote: '"AI 활용 가능이 50%인데, 누구를 믿죠?"', detail: 'TAPEX for Recruit API로 지원자 점수를 자동 검증. 잡코리아·사람인 연동.', accent: '#059669' },
   ];
 
   const sectionFade = useScrollFadeIn();
@@ -449,7 +467,7 @@ function PersonaSection() {
   return (
     <section style={{
       background: 'linear-gradient(180deg, #fff 0%, #F8FAFC 100%)',
-      padding: '120px 48px',
+      padding: isMobile ? '80px 20px' : '120px 48px',
       position: 'relative',
     }}>
       {/* Subtle geometric pattern */}
@@ -462,7 +480,7 @@ function PersonaSection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>FOR EVERYONE</p>
         <h2 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
@@ -473,7 +491,7 @@ function PersonaSection() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
           {personas.map((p, i) => (
             <div key={i} style={{
-              background: '#fff', borderRadius: 16, padding: '32px 28px',
+              background: '#fff', borderRadius: 16, padding: isMobile ? '28px 20px' : '32px 28px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
               borderLeft: `3px solid ${p.accent}`,
               transition: 'transform 0.2s, box-shadow 0.2s',
@@ -481,7 +499,7 @@ function PersonaSection() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)'; }}
             >
-              <div style={{ fontSize: 28, marginBottom: 12 }}>{p.icon}</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: p.accent, letterSpacing: '0.1em', marginBottom: 12 }}>{String(i+1).padStart(2, '0')}</div>
               <h3 style={{ fontWeight: 700, fontSize: 16, color: '#0F172A', marginBottom: 12 }}>{p.title}</h3>
               <p style={{ fontSize: 14, fontStyle: 'italic', color: '#94A3B8', marginBottom: 16, lineHeight: 1.6 }}>{p.quote}</p>
               <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.8 }}>{p.detail}</p>
@@ -495,6 +513,7 @@ function PersonaSection() {
 
 /* ─── LLM Section ─── */
 function LLMSection() {
+  const isMobile = useIsMobile();
   const llms = [
     { section: 'A', name: 'ChatGPT', sub: '범용 대화', color: '#10A37F', desc: '범용 프롬프팅 · 멀티턴 대화 설계 · 함수 호출 · 출력 구조화' },
     { section: 'B', name: 'Claude', sub: '장문 분석', color: '#D97706', desc: '장문 문서 분석 · 코드 리뷰 · 추론 체인 설계 · 시스템 프롬프트 최적화' },
@@ -505,11 +524,11 @@ function LLMSection() {
   const sectionFade = useScrollFadeIn();
 
   return (
-    <section style={{ background: '#F8FAFC', padding: '120px 48px' }}>
+    <section style={{ background: '#F8FAFC', padding: isMobile ? '80px 20px' : '120px 48px' }}>
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>4 LLMs</p>
         <h2 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>4대 LLM으로 측정합니다</h2>
@@ -552,6 +571,7 @@ function LLMSection() {
 
 /* ─── Grade System ─── */
 function GradeSection() {
+  const isMobile = useIsMobile();
   const grades = [
     { range: '850~990', name: 'Platinum', color: '#7C3AED', desc: 'AI 오케스트레이션 마스터 — 상위 1%' },
     { range: '750~849', name: 'Gold', color: '#C9A84C', desc: '전략적 AI 활용 — 팀 리더·시니어 수준' },
@@ -564,19 +584,19 @@ function GradeSection() {
   const sectionFade = useScrollFadeIn();
 
   return (
-    <section id="grade" style={{ background: '#fff', padding: '120px 48px' }}>
+    <section id="grade" style={{ background: '#fff', padding: isMobile ? '80px 20px' : '120px 48px' }}>
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>GRADE SYSTEM</p>
         <h2 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 56,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>당신의 점수는 어디에?</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
           {grades.map((g, i) => (
             <div key={i} style={{
-              background: '#fff', borderRadius: 14, padding: '28px 24px',
+              background: '#fff', borderRadius: 14, padding: isMobile ? '24px 20px' : '28px 24px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
               borderTop: `3px solid ${g.color}`,
               display: 'flex', alignItems: 'center', gap: 20,
@@ -607,22 +627,23 @@ function GradeSection() {
 /* ─── Enterprise ─── */
 function EnterpriseSection() {
   const sectionFade = useScrollFadeIn();
+  const isMobile = useIsMobile();
 
   return (
-    <section id="enterprise" style={{ background: '#F8FAFC', padding: '120px 48px' }}>
-      <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 64, alignItems: 'center' }}>
+    <section id="enterprise" style={{ background: '#F8FAFC', padding: isMobile ? '80px 20px' : '120px 48px' }}>
+      <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: isMobile ? 'column' : 'row', flexWrap: 'wrap', gap: isMobile ? 40 : 64, alignItems: 'center' }}>
         <div style={{ flex: '1 1 440px' }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 16 }}>FOR ENTERPRISE</p>
           <h2 style={{
-            fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+            fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
           }}>AI 잘 쓰는 사람,<br />TAPEX 점수로 찾으세요</h2>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
+          <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
             서류 전형에 TAPEX 점수 기준을 적용하세요.
           </p>
-          <p style={{ fontSize: 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
+          <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
             &quot;AI 활용 가능&quot; 같은 모호한 자기소개 대신, 990점 척도의 객관적 수치로 지원자를 평가할 수 있습니다. 잡코리아·사람인 연동을 지원합니다.
           </p>
           <a href="/enterprise" style={{
@@ -651,8 +672,9 @@ function EnterpriseSection() {
 
 /* ─── Partners ─── */
 function PartnerSection() {
+  const isMobile = useIsMobile();
   return (
-    <section style={{ background: '#fff', padding: '64px 48px', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9' }}>
+    <section style={{ background: '#fff', padding: isMobile ? '48px 20px' : '64px 48px', borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 11, letterSpacing: '0.25em', color: '#94A3B8', textTransform: 'uppercase' as const, marginBottom: 40, fontWeight: 600 }}>인증 파트너</p>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 64, flexWrap: 'wrap' }}>
@@ -667,20 +689,21 @@ function PartnerSection() {
 
 /* ─── Certification Badge ─── */
 function CertificationBadgeSection() {
+  const isMobile = useIsMobile();
   const badges = [
-    { level: 'Platinum', color: '#7C3AED', bgGrad: 'linear-gradient(135deg, #7C3AED, #9B59B6)', range: '850~990', icon: '◆' },
-    { level: 'Gold', color: '#C9A84C', bgGrad: 'linear-gradient(135deg, #C9A84C, #F0D080)', range: '750~849', icon: '★' },
-    { level: 'Silver', color: '#64748B', bgGrad: 'linear-gradient(135deg, #64748B, #94A3B8)', range: '650~749', icon: '●' },
+    { level: 'Platinum', color: '#7C3AED', range: '850~990', icon: '◆' },
+    { level: 'Gold', color: '#C9A84C', range: '750~849', icon: '★' },
+    { level: 'Silver', color: '#64748B', range: '650~749', icon: '●' },
   ];
 
   const sectionFade = useScrollFadeIn();
 
   return (
-    <section style={{ background: '#F8FAFC', padding: '120px 48px' }}>
+    <section style={{ background: '#F8FAFC', padding: isMobile ? '80px 20px' : '120px 48px' }}>
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.1em', textTransform: 'uppercase' as const, marginBottom: 12 }}>DIGITAL BADGE</p>
         <h2 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>인증 배지를 받으세요</h2>
@@ -688,50 +711,57 @@ function CertificationBadgeSection() {
           LinkedIn 프로필에 인증 배지를 추가하세요
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap', marginBottom: 48 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: isMobile ? 16 : 32, flexWrap: 'wrap', marginBottom: 48 }}>
           {badges.map((b, i) => (
             <div key={i} style={{
-              width: 200, textAlign: 'center',
-              transition: 'transform 0.3s',
+              background: '#fff',
+              border: `1px solid ${b.color}30`,
+              borderTop: `4px solid ${b.color}`,
+              borderRadius: 16,
+              padding: '32px 24px',
+              textAlign: 'left' as const,
+              width: isMobile ? '100%' : 220,
+              maxWidth: 280,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
             }}
-              onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-8px)')}
-              onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'; }}
             >
-              {/* Badge circle */}
               <div style={{
-                width: 160, height: 160, borderRadius: '50%',
-                background: b.bgGrad,
-                margin: '0 auto 20px',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center',
-                boxShadow: `0 8px 32px ${b.color}33`,
-                position: 'relative',
+                width: 48, height: 48, borderRadius: 12,
+                background: `${b.color}15`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 16,
               }}>
-                <div style={{
-                  position: 'absolute', inset: 6, borderRadius: '50%',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                }} />
-                <div style={{ fontSize: 24, color: '#fff', marginBottom: 4 }}>{b.icon}</div>
-                <div style={{ fontSize: 18, fontWeight: 900, color: '#fff', fontFamily: FONT, letterSpacing: '-0.02em' }}>TAPEX</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', fontWeight: 600, marginTop: 2 }}>{b.level}</div>
+                <span style={{ fontSize: 20, color: b.color }}>{b.icon}</span>
               </div>
-              <div style={{ fontWeight: 700, fontSize: 16, color: '#0F172A', marginBottom: 4 }}>{b.level}</div>
-              <div style={{ fontSize: 14, color: '#64748B' }}>{b.range}점</div>
+              <div style={{ fontWeight: 900, fontSize: 20, color: '#0F172A', marginBottom: 4, letterSpacing: '-0.03em' }}>
+                TAPEX {b.level}
+              </div>
+              <div style={{ fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>{b.range}점</div>
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 4,
+                fontSize: 11, fontWeight: 600, color: b.color,
+                background: `${b.color}10`, borderRadius: 4, padding: '3px 8px',
+              }}>
+                ✓ VERIFIED
+              </div>
             </div>
           ))}
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: isMobile ? 16 : 32, flexWrap: 'wrap' }}>
           {[
-            { icon: '🔗', text: '블록체인 검증' },
-            { icon: '📱', text: 'QR 코드 인증' },
-            { icon: '💳', text: '디지털 월렛 호환' },
+            { text: '블록체인 검증' },
+            { text: 'QR 코드 인증' },
+            { text: '디지털 월렛 호환' },
           ].map((item, i) => (
             <div key={i} style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              fontSize: 14, color: '#475569', fontWeight: 500,
+              display: 'flex', alignItems: 'center', gap: 6,
+              fontSize: 13, color: '#475569', fontWeight: 500,
             }}>
-              <span style={{ fontSize: 18 }}>{item.icon}</span>
+              <span style={{ color: '#C9A84C', fontSize: 14 }}>✓</span>
               {item.text}
             </div>
           ))}
@@ -743,10 +773,11 @@ function CertificationBadgeSection() {
 
 /* ─── CTA ─── */
 function CTASection() {
+  const isMobile = useIsMobile();
   return (
     <section id="pricing" style={{
       background: 'linear-gradient(135deg, #0F172A 0%, #1B3A6B 100%)',
-      padding: '140px 48px',
+      padding: isMobile ? '100px 20px' : '140px 48px',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
@@ -825,11 +856,12 @@ function FooterSection() {
     },
   ];
 
+  const isMobile = useIsMobile();
   return (
-    <footer style={{ background: '#0F172A', padding: '80px 48px 40px' }}>
+    <footer style={{ background: '#0F172A', padding: isMobile ? '60px 20px 32px' : '80px 48px 40px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         {/* Top: columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 48, marginBottom: 64 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(160px, 1fr))', gap: isMobile ? 32 : 48, marginBottom: isMobile ? 40 : 64 }}>
           {/* Brand column */}
           <div>
             <img src="/tapex-logo.svg" alt="TAPEX" style={{ height: 28, width: 'auto', marginBottom: 16, filter: 'brightness(0) invert(1)' }} />
