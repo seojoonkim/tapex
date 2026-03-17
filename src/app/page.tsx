@@ -602,7 +602,7 @@ function PersonaSection() {
     {
       title: '취준생 · 대학생',
       quote: '"AI 잘 쓴다고 써봤는데, 증명할 방법이 없더라고요."',
-      detail: 'TAPEX Bronze(450점+)면 서류 통과율이 달라집니다. 학생 40% 할인, 링크드인 배지 발급.',
+      detail: 'TAPEX Bronze(600점+)면 서류 통과율이 달라집니다. 학생 40% 할인, 링크드인 배지 발급.',
       accent: '#C9A84C',
       accentBg: 'rgba(201,168,76,0.06)',
       icon: '🎓',
@@ -610,7 +610,7 @@ function PersonaSection() {
     {
       title: '직장인 · 이직자',
       quote: '"팀에서 제가 AI 제일 잘 쓰는데, 아무도 몰라요."',
-      detail: 'TAPEX Gold(750점+)로 승진 심사, 연봉 협상, 이직 시 즉시 활용 가능한 스펙.',
+      detail: 'TAPEX Gold(800점+)로 승진 심사, 연봉 협상, 이직 시 즉시 활용 가능한 스펙.',
       accent: '#1B3A6B',
       accentBg: 'rgba(27,58,107,0.04)',
       icon: '💼',
