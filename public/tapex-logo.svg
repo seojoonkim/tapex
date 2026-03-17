@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none">
-  <!-- T symbol with gold accent -->
-  <rect x="0" y="0" width="36" height="36" rx="8" fill="#0F172A"/>
-  <path d="M8 10h20v4H20v14h-4V14H8V10z" fill="#C9A84C"/>
-  <!-- APEX text -->
-  <text x="44" y="28" font-family="'DM Sans', sans-serif" font-weight="900" font-size="28" letter-spacing="-1" fill="#0F172A">APEX</text>
-  <!-- Underline accent -->
-  <rect x="44" y="32" width="48" height="2.5" rx="1.25" fill="#C9A84C"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" fill="none">
+  <text x="0" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#0F172A">T</text>
+  <text x="22" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#C9A84C">A</text>
+  <text x="44" y="28" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="-1.5" fill="#0F172A">PEX</text>
 </svg>
