@@ -646,7 +646,7 @@ function TrustNumbersSection() {
   const items = [
     { target: 12000, suffix: '+', label: '사전 등록 완료' },
     { target: 50, suffix: '+', label: '기업·기관 파트너' },
-    { target: 4, suffix: '대', label: 'LLM 통합 (GPT·Claude·Gemini·Grok)' },
+    { target: 4, suffix: '대', label: 'LLM 통합' },
     { target: 160, suffix: '+', label: '개국 온라인 응시' },
   ];
 
@@ -673,7 +673,7 @@ function TrustNumbersSection() {
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>글로벌 신뢰, 숫자로 증명</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 24 : 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 16 : 40, alignItems: 'stretch' }}>
           {items.map((item, i) => (
             <div key={i} ref={counters[i].ref} style={{
               textAlign: 'center',
@@ -681,6 +681,7 @@ function TrustNumbersSection() {
               borderRadius: 16,
               background: '#F8FAFC',
               border: '1px solid #E2E8F0',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             }}>
               <div style={{
                 fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900,
