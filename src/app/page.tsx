@@ -289,9 +289,11 @@ function HeroSection() {
         fontWeight: 400,
         position: 'relative',
       }}>
-        Test of AI Prompt EXpertise<br />
-        AI 스킬 보유자의 연봉은 평균 56% 높습니다.
-당신의 AI 역량을 990점 척도로 증명하세요
+        <span style={{ fontWeight: 700, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.08em', fontSize: '0.85em' }}>
+          Test of AI Prompt EXpertise
+        </span><br />
+        AI 스킬 보유자의 연봉은 평균 56% 높습니다.<br />
+        당신의 AI 역량을 990점 척도로 증명하세요
       </p>
 
       {/* CTA */}
@@ -716,7 +718,18 @@ function WhyTapexSection() {
           <p style={{
             fontSize: 22, fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em',
             paddingLeft: 16, borderLeft: '3px solid #C9A84C',
+            marginBottom: 24,
           }}>TAPEX가 그 글로벌 표준입니다.</p>
+          <div style={{
+            background: '#F8FAFC', borderRadius: 12, padding: '16px 20px',
+            display: 'flex', alignItems: 'flex-start', gap: 12,
+          }}>
+            <div style={{ fontSize: 18, flexShrink: 0, marginTop: 2 }}>🔬</div>
+            <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.8, margin: 0 }}>
+              시험 문항과 평가 체계는 LLM 벤치마크를 설계하는 글로벌 최고 수준의
+              AI 개발자 및 리서처들이 직접 제작했습니다.
+            </p>
+          </div>
         </div>
 
         {/* Right: image + comparison cards */}
@@ -998,8 +1011,11 @@ function ExamCategorySection() {
           color: '#0F172A', textAlign: 'center', marginBottom: 12,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>6가지 역량으로 측정합니다</h2>
-        <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 16, lineHeight: 1.8 }}>
+        <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 8, lineHeight: 1.8 }}>
           사용할 AI 모델은 수험생이 자유롭게 선택
+        </p>
+        <p style={{ textAlign: 'center', fontSize: 14, color: '#64748B', marginBottom: 16, lineHeight: 1.8 }}>
+          시험 문항은 LLM 벤치마크를 설계하는 글로벌 최고 수준의 AI 개발자 및 리서처들이 직접 제작합니다
         </p>
         {/* LLM choice badge */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 56 }}>
