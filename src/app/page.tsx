@@ -902,76 +902,69 @@ function GradeSection() {
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>당신의 점수는 어디에?</h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-          gap: 16,
-        }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 12 }}>
           {grades.map((g, i) => (
             <div key={i} style={{
-              background: '#fff', borderRadius: 16, padding: isMobile ? '24px 20px' : '28px 28px',
-              border: '1px solid #F1F5F9',
-              boxShadow: '0 1px 4px rgba(0,0,0,0.03)',
+              background: '#FAFAFA', borderRadius: 16,
+              padding: isMobile ? '22px 20px' : '26px 28px',
               display: 'flex', alignItems: 'center', gap: 20,
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-              position: 'relative' as const,
-              overflow: 'hidden' as const,
+              transition: 'transform 0.2s, box-shadow 0.2s',
             }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.06)';
-                e.currentTarget.style.borderColor = `${g.color}40`;
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.03)';
-                e.currentTarget.style.borderColor = '#F1F5F9';
-              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.07)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
             >
-              {/* Left accent */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, bottom: 0,
-                width: 3, background: g.color,
-              }} />
-
-              {/* Score badge */}
-              <div style={{
-                minWidth: 80, textAlign: 'center' as const,
-              }}>
-                <div style={{
-                  fontSize: 24, fontWeight: 900, color: g.color,
-                  fontFamily: FONT, letterSpacing: '-0.04em', lineHeight: 1,
-                }}>{g.range}</div>
-                <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 4 }}>점</div>
+              {/* SVG Grade Icon */}
+              <div style={{ flexShrink: 0, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {i === 0 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <polygon points="22,3 26,15 39,15 29,23 33,36 22,28 11,36 15,23 5,15 18,15" fill={g.color} opacity="0.18"/>
+                  <polygon points="22,7 25.5,16.5 36,16.5 27.5,22.5 31,33 22,27 13,33 16.5,22.5 8,16.5 18.5,16.5" fill={g.color} opacity="0.45"/>
+                  <polygon points="22,11 24.5,18 32,18 26,22.5 28.5,30 22,26 15.5,30 18,22.5 12,18 19.5,18" fill={g.color}/>
+                </svg>}
+                {i === 1 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <circle cx="22" cy="18" r="13" fill={g.color} opacity="0.12"/>
+                  <circle cx="22" cy="18" r="9" fill={g.color} opacity="0.3"/>
+                  <circle cx="22" cy="18" r="5" fill={g.color}/>
+                  <rect x="16" y="30" width="12" height="3" rx="1.5" fill={g.color} opacity="0.4"/>
+                  <rect x="18" y="34" width="8" height="3" rx="1.5" fill={g.color} opacity="0.25"/>
+                </svg>}
+                {i === 2 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <rect x="6" y="6" width="32" height="32" rx="9" fill={g.color} opacity="0.1"/>
+                  <rect x="11" y="11" width="22" height="22" rx="6" fill={g.color} opacity="0.28"/>
+                  <rect x="16" y="16" width="12" height="12" rx="3" fill={g.color}/>
+                </svg>}
+                {i === 3 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <path d="M22 5L38 35H6L22 5Z" fill={g.color} opacity="0.12"/>
+                  <path d="M22 11L35 33H9L22 11Z" fill={g.color} opacity="0.3"/>
+                  <path d="M22 17L32 31H12L22 17Z" fill={g.color}/>
+                </svg>}
+                {i === 4 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <circle cx="22" cy="22" r="16" stroke={g.color} strokeWidth="2" fill="none" opacity="0.25"/>
+                  <circle cx="22" cy="22" r="10" stroke={g.color} strokeWidth="1.5" fill="none" opacity="0.45"/>
+                  <circle cx="22" cy="22" r="4" fill={g.color}/>
+                </svg>}
+                {i === 5 && <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <path d="M10 34 Q22 6 34 34" stroke={g.color} strokeWidth="2" fill="none" opacity="0.2"/>
+                  <path d="M13 34 Q22 11 31 34" stroke={g.color} strokeWidth="1.5" fill="none" opacity="0.4"/>
+                  <path d="M16 34 Q22 16 28 34" stroke={g.color} strokeWidth="2.5" fill="none"/>
+                </svg>}
               </div>
 
-              <div style={{ borderLeft: '1px solid #F1F5F9', paddingLeft: 20, flex: 1 }}>
-                <div style={{
-                  fontWeight: 700, fontSize: 16, color: '#0F172A', marginBottom: 6,
-                  display: 'flex', alignItems: 'center', gap: 8,
-                }}>
+              {/* Score */}
+              <div style={{ minWidth: 85, textAlign: 'center' as const }}>
+                <div style={{ fontSize: isMobile ? 18 : 24, fontWeight: 900, color: g.color, fontFamily: FONT, letterSpacing: '-0.04em', lineHeight: 1 }}>{g.range}</div>
+                <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 3 }}>점</div>
+              </div>
+
+              {/* Divider */}
+              <div style={{ width: 1, alignSelf: 'stretch', background: '#E2E8F0' }} />
+
+              {/* Text */}
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: '#0F172A', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
                   {g.name}
-                  {i === 0 && (
-                    <span style={{
-                      fontSize: 10, fontWeight: 700, color: g.color,
-                      background: `${g.color}12`, borderRadius: 4,
-                      padding: '2px 6px', letterSpacing: '0.05em',
-                    }}>TOP 1%</span>
-                  )}
+                  {i === 0 && <span style={{ fontSize: 10, fontWeight: 700, color: g.color, background: `${g.color}12`, borderRadius: 4, padding: '2px 6px' }}>TOP 1%</span>}
                 </div>
-                <div style={{ fontSize: 13, color: '#64748B', lineHeight: 1.7, marginBottom: 8 }}>{g.desc}</div>
-                {/* Progress bar */}
-                <div style={{
-                  height: 3, background: '#F1F5F9', borderRadius: 2,
-                  overflow: 'hidden',
-                }}>
-                  <div style={{
-                    height: '100%', width: g.bar,
-                    background: `linear-gradient(90deg, ${g.color}, ${g.color}80)`,
-                    borderRadius: 2,
-                    transition: 'width 0.6s ease',
-                  }} />
-                </div>
+                <div style={{ fontSize: 13, color: '#64748B', lineHeight: 1.7 }}>{g.desc}</div>
               </div>
             </div>
           ))}
