@@ -290,7 +290,7 @@ function HeroSection() {
         position: 'relative',
       }}>
         Test of AI Prompt EXpertise<br />
-        AI 스킬 보유자 연봉 56% 프리미엄 시대
+        AI 스킬 보유자의 연봉은 평균 56% 높습니다.
 당신의 AI 역량을 990점 척도로 증명하세요
       </p>
 
@@ -437,7 +437,7 @@ function AuthorityQuotesSection() {
     { label: 'AI 스킬 연봉 프리미엄', value: 56, display: '56%', source: 'PwC 2025', maxBar: 80 },
     { label: 'AI 파워유저 생산성 격차', value: 100, display: '6x', source: 'OpenAI', maxBar: 100 },
     { label: '직무 역량 변화 예측', value: 39, display: '39%', source: 'WEF 2025', maxBar: 80 },
-    { label: 'AI 도구 사용 지식노동자', value: 75, display: '75%', source: 'Microsoft', maxBar: 80 },
+    { label: 'AI 도구 사용 직장인', value: 75, display: '75%', source: 'Microsoft', maxBar: 80 },
   ];
 
   return (
@@ -485,7 +485,7 @@ function AuthorityQuotesSection() {
                 color: 'rgba(201,168,76,0.25)',
                 position: 'absolute', top: 16, left: 24,
                 fontFamily: 'Georgia, serif',
-              }}>&ldquo;</span>
+              }}>"</span>
 
               {/* Quote text */}
               <p style={{
@@ -838,7 +838,7 @@ function PersonaSection() {
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
         <p style={{ textAlign: 'center', marginBottom: 56, fontSize: 16, color: '#94A3B8', fontWeight: 400, lineHeight: 1.8 }}>
-          전 세계 지식노동자 75%가 AI를 쓰는 시대.
+          전 세계 직장인 75%가 AI를 쓰는 시대.
 AI 역량을 증명해야 하는 모든 분께
         </p>
 
