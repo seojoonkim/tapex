@@ -271,7 +271,7 @@ function HeroSection() {
         fontFamily: FONT,
         position: 'relative',
       }}>
-        AI를 잘 쓰는<br />사람의 기준,{' '}
+        AI를 잘 활용하는<br />인재의 기준,{' '}
         <span style={{
           background: 'linear-gradient(135deg, #C9A84C, #F0D080)',
           WebkitBackgroundClip: 'text',
@@ -289,7 +289,7 @@ function HeroSection() {
         fontWeight: 400,
         position: 'relative',
       }}>
-        프롬프트 설계부터 데이터 분석, 코드 생성까지<br />
+        Test of AI Prompt EXpertise<br />
         6가지 핵심 역량으로 측정하는 세계 최초의 AI 활용 능력 인증 시험
       </p>
 
