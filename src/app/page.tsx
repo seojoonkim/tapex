@@ -1090,41 +1090,115 @@ function CertificationBadgeSection() {
 
   const sectionFade = useScrollFadeIn();
 
+  const PlatinumBadge = () => (
+    <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{ display: 'block', margin: '0 auto 24px' }}>
+      <defs>
+        <radialGradient id="plat_bg" cx="40%" cy="30%" r="70%">
+          <stop offset="0%" stopColor="#B57BEE"/>
+          <stop offset="100%" stopColor="#5B21B6"/>
+        </radialGradient>
+        <radialGradient id="plat_shine" cx="35%" cy="25%" r="50%">
+          <stop offset="0%" stopColor="white" stopOpacity="0.35"/>
+          <stop offset="100%" stopColor="white" stopOpacity="0"/>
+        </radialGradient>
+        <linearGradient id="plat_ring" x1="0" y1="0" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#C4B5FD"/>
+          <stop offset="50%" stopColor="#7C3AED"/>
+          <stop offset="100%" stopColor="#C4B5FD"/>
+        </linearGradient>
+      </defs>
+      {/* Outer decorative ring */}
+      <circle cx="70" cy="70" r="67" fill="none" stroke="url(#plat_ring)" strokeWidth="1.5" opacity="0.5"/>
+      <circle cx="70" cy="70" r="62" fill="none" stroke="#7C3AED" strokeWidth="0.5" opacity="0.3" strokeDasharray="4 3"/>
+      {/* Main badge */}
+      <circle cx="70" cy="70" r="54" fill="url(#plat_bg)"/>
+      {/* Shine overlay */}
+      <circle cx="70" cy="70" r="54" fill="url(#plat_shine)"/>
+      {/* Inner ring */}
+      <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5"/>
+      {/* Diamond shape */}
+      <polygon points="70,36 90,62 70,92 50,62" fill="white" opacity="0.95"/>
+      <polygon points="70,42 86,62 70,84 54,62" fill="white" opacity="0.15"/>
+      <line x1="50" y1="62" x2="90" y2="62" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8"/>
+      {/* Corner dots */}
+      <circle cx="70" cy="14" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+      <circle cx="126" cy="70" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+      <circle cx="70" cy="126" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+      <circle cx="14" cy="70" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+    </svg>
+  );
+
+  const GoldBadge = () => (
+    <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{ display: 'block', margin: '0 auto 24px' }}>
+      <defs>
+        <radialGradient id="gold_bg" cx="40%" cy="30%" r="70%">
+          <stop offset="0%" stopColor="#F0D060"/>
+          <stop offset="100%" stopColor="#A87820"/>
+        </radialGradient>
+        <radialGradient id="gold_shine" cx="35%" cy="25%" r="50%">
+          <stop offset="0%" stopColor="white" stopOpacity="0.4"/>
+          <stop offset="100%" stopColor="white" stopOpacity="0"/>
+        </radialGradient>
+        <linearGradient id="gold_ring" x1="0" y1="0" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#F0D080"/>
+          <stop offset="50%" stopColor="#C9A84C"/>
+          <stop offset="100%" stopColor="#F0D080"/>
+        </linearGradient>
+      </defs>
+      <circle cx="70" cy="70" r="67" fill="none" stroke="url(#gold_ring)" strokeWidth="1.5" opacity="0.5"/>
+      <circle cx="70" cy="70" r="62" fill="none" stroke="#C9A84C" strokeWidth="0.5" opacity="0.3" strokeDasharray="4 3"/>
+      <circle cx="70" cy="70" r="54" fill="url(#gold_bg)"/>
+      <circle cx="70" cy="70" r="54" fill="url(#gold_shine)"/>
+      <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5"/>
+      {/* Crown */}
+      <path d="M42,85 L42,60 L55,74 L70,44 L85,74 L98,60 L98,85 Z" fill="white" opacity="0.95"/>
+      <path d="M42,85 L98,85" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.95"/>
+      <circle cx="70" cy="44" r="3.5" fill="white" opacity="0.9"/>
+      <circle cx="42" cy="60" r="3" fill="white" opacity="0.9"/>
+      <circle cx="98" cy="60" r="3" fill="white" opacity="0.9"/>
+      <circle cx="70" cy="14" r="2.5" fill="#F0D080" opacity="0.7"/>
+      <circle cx="126" cy="70" r="2.5" fill="#F0D080" opacity="0.7"/>
+      <circle cx="70" cy="126" r="2.5" fill="#F0D080" opacity="0.7"/>
+      <circle cx="14" cy="70" r="2.5" fill="#F0D080" opacity="0.7"/>
+    </svg>
+  );
+
+  const SilverBadge = () => (
+    <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{ display: 'block', margin: '0 auto 24px' }}>
+      <defs>
+        <radialGradient id="silv_bg" cx="40%" cy="30%" r="70%">
+          <stop offset="0%" stopColor="#CBD5E1"/>
+          <stop offset="100%" stopColor="#475569"/>
+        </radialGradient>
+        <radialGradient id="silv_shine" cx="35%" cy="25%" r="50%">
+          <stop offset="0%" stopColor="white" stopOpacity="0.35"/>
+          <stop offset="100%" stopColor="white" stopOpacity="0"/>
+        </radialGradient>
+        <linearGradient id="silv_ring" x1="0" y1="0" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#E2E8F0"/>
+          <stop offset="50%" stopColor="#94A3B8"/>
+          <stop offset="100%" stopColor="#E2E8F0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="70" cy="70" r="67" fill="none" stroke="url(#silv_ring)" strokeWidth="1.5" opacity="0.5"/>
+      <circle cx="70" cy="70" r="62" fill="none" stroke="#94A3B8" strokeWidth="0.5" opacity="0.3" strokeDasharray="4 3"/>
+      <circle cx="70" cy="70" r="54" fill="url(#silv_bg)"/>
+      <circle cx="70" cy="70" r="54" fill="url(#silv_shine)"/>
+      <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5"/>
+      {/* Shield */}
+      <path d="M70,36 L94,46 L94,68 C94,82 70,96 70,96 C70,96 46,82 46,68 L46,46 Z" fill="white" opacity="0.95"/>
+      <path d="M70,44 L87,52 L87,68 C87,78 70,88 70,88 C70,88 53,78 53,68 L53,52 Z" fill="white" opacity="0.12"/>
+      <circle cx="70" cy="14" r="2.5" fill="#E2E8F0" opacity="0.7"/>
+      <circle cx="126" cy="70" r="2.5" fill="#E2E8F0" opacity="0.7"/>
+      <circle cx="70" cy="126" r="2.5" fill="#E2E8F0" opacity="0.7"/>
+      <circle cx="14" cy="70" r="2.5" fill="#E2E8F0" opacity="0.7"/>
+    </svg>
+  );
+
   const BadgeSVG = ({ color, gradStart, gradEnd, level, idx }: { color: string; gradStart: string; gradEnd: string; level: string; idx: number }) => {
-    const gradId = `bg_${idx}_static`;
-    return (
-      <svg width="110" height="110" viewBox="0 0 110 110" fill="none" style={{ display: 'block', margin: '0 auto 20px' }}>
-        <defs>
-          <linearGradient id={gradId} x1="15" y1="10" x2="95" y2="90" gradientUnits="userSpaceOnUse">
-            <stop stopColor={gradStart}/>
-            <stop offset="1" stopColor={gradEnd}/>
-          </linearGradient>
-        </defs>
-        {/* Outer ring */}
-        <circle cx="55" cy="50" r="48" fill="none" stroke={color} strokeWidth="1.2" opacity={0.18}/>
-        {/* Main circle */}
-        <circle cx="55" cy="50" r="41" fill={`url(#${gradId})`} />
-        <circle cx="55" cy="50" r="41" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
-
-        {/* Platinum: 다이아몬드 */}
-        {idx === 0 && (
-          <polygon points="55,26 72,44 55,70 38,44" fill="white" opacity={0.95}/>
-        )}
-
-        {/* Gold: 왕관 */}
-        {idx === 1 && (
-          <path d="M36,60 L36,40 L46,52 L55,30 L64,52 L74,40 L74,60 Z" fill="white" opacity={0.95}/>
-        )}
-
-        {/* Silver: 방패 */}
-        {idx === 2 && (
-          <path d="M55,28 L72,36 L72,52 C72,62 55,72 55,72 C55,72 38,62 38,52 L38,36 Z" fill="white" opacity={0.95}/>
-        )}
-
-        {/* Level text */}
-        <text x="55" y="97" textAnchor="middle" fontSize="7.5" fontWeight="700" fill={color} letterSpacing="2" fontFamily="Inter, sans-serif">{level.toUpperCase()}</text>
-      </svg>
-    );
+    if (idx === 0) return <PlatinumBadge />;
+    if (idx === 1) return <GoldBadge />;
+    return <SilverBadge />;
   };
 
   return (
