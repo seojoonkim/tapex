@@ -290,7 +290,8 @@ function HeroSection() {
         position: 'relative',
       }}>
         Test of AI Prompt EXpertise<br />
-        AI 스킬 보유자 연봉 56% 프리미엄 시대 — 당신의 AI 역량을 990점 척도로 증명하세요
+        AI 스킬 보유자 연봉 56% 프리미엄 시대
+당신의 AI 역량을 990점 척도로 증명하세요
       </p>
 
       {/* CTA */}
@@ -365,7 +366,7 @@ function StatsSection() {
     { num: '80문항', desc: '프롬프팅 · 분석 · 코드 · 문서 · 창작 · 멀티모달', icon: '📋' },
     { num: '990점', desc: 'TOEIC 방식의 정밀한 역량 척도', icon: '📊' },
     { num: '6개', desc: 'WEF 선정 핵심 AI 역량 기반 카테고리', icon: '🤖' },
-    { num: '2년', desc: 'AI 기술 변화 반영 — 항상 최신 기준', icon: '🔄' },
+    { num: '2년', desc: 'AI 기술 변화를 반영한 갱신 주기', icon: '🔄' },
   ];
 
   return (
@@ -399,6 +400,191 @@ function StatsSection() {
             <div style={{ fontSize: 13, color: '#94A3B8', marginTop: 10, lineHeight: 1.8 }}>{s.desc}</div>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/* ─── Authority Quotes Section ─── */
+function AuthorityQuotesSection() {
+  const isMobile = useIsMobile();
+
+  const quotes = [
+    {
+      text: 'AI will not replace humans, but humans with AI will replace humans without AI.',
+      name: 'Karim Lakhani',
+      title: 'Professor',
+      company: 'Harvard Business School',
+      badge: 'HARVARD',
+    },
+    {
+      text: 'Every company will be an AI company or will be disrupted by one.',
+      name: 'Jensen Huang',
+      title: 'CEO',
+      company: 'NVIDIA',
+      badge: 'NVIDIA',
+    },
+    {
+      text: 'AI is not a technology trend — it is the most transformative force in the history of work.',
+      name: 'Satya Nadella',
+      title: 'CEO',
+      company: 'Microsoft',
+      badge: 'MICROSOFT',
+    },
+  ];
+
+  const stats = [
+    { label: 'AI 스킬 연봉 프리미엄', value: 56, display: '56%', source: 'PwC 2025', maxBar: 80 },
+    { label: 'AI 파워유저 생산성 격차', value: 100, display: '6x', source: 'OpenAI', maxBar: 100 },
+    { label: '직무 역량 변화 예측', value: 39, display: '39%', source: 'WEF 2025', maxBar: 80 },
+    { label: 'AI 도구 사용 지식노동자', value: 75, display: '75%', source: 'Microsoft', maxBar: 80 },
+  ];
+
+  return (
+    <section style={{
+      background: '#0F172A',
+      padding: isMobile ? '80px 20px' : '120px 48px',
+    }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: isMobile ? 48 : 72 }}>
+          <span style={{
+            display: 'inline-block',
+            fontSize: 12, fontWeight: 700, letterSpacing: '0.2em',
+            color: '#C9A84C', textTransform: 'uppercase' as const,
+            marginBottom: 16,
+            fontFamily: FONT,
+          }}>GLOBAL CONSENSUS</span>
+          <h2 style={{
+            fontSize: isMobile ? 24 : 36, fontWeight: 800,
+            color: '#FFFFFF', lineHeight: 1.4,
+            letterSpacing: '-0.03em', margin: 0,
+            fontFamily: FONT,
+          }}>AI 역량은 이미 새로운 기준이 되었습니다</h2>
+        </div>
+
+        {/* Quotes Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: isMobile ? 24 : 32,
+          marginBottom: isMobile ? 48 : 72,
+        }}>
+          {quotes.map((q, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.04)',
+              borderRadius: 16,
+              padding: isMobile ? '32px 24px' : '40px 32px',
+              border: '1px solid rgba(255,255,255,0.06)',
+              position: 'relative',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}>
+              {/* Quote mark */}
+              <span style={{
+                fontSize: 64, lineHeight: 1, fontWeight: 700,
+                color: 'rgba(201,168,76,0.25)',
+                position: 'absolute', top: 16, left: 24,
+                fontFamily: 'Georgia, serif',
+              }}>&ldquo;</span>
+
+              {/* Quote text */}
+              <p style={{
+                fontSize: isMobile ? 16 : 18,
+                color: '#E2E8F0',
+                lineHeight: 1.7,
+                fontStyle: 'italic',
+                margin: '24px 0 28px 0',
+                fontFamily: FONT,
+                minHeight: isMobile ? 'auto' : 120,
+              }}>{q.text}</p>
+
+              {/* Author */}
+              <div style={{
+                borderTop: '1px solid rgba(255,255,255,0.08)',
+                paddingTop: 20,
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              }}>
+                <div>
+                  <div style={{
+                    fontSize: 15, fontWeight: 700,
+                    color: '#C9A84C',
+                    fontFamily: FONT,
+                  }}>{q.name}</div>
+                  <div style={{
+                    fontSize: 13, color: '#94A3B8',
+                    marginTop: 2, fontFamily: FONT,
+                  }}>{q.title}, {q.company}</div>
+                </div>
+                <span style={{
+                  fontSize: 10, fontWeight: 800,
+                  letterSpacing: '0.12em',
+                  color: 'rgba(201,168,76,0.5)',
+                  background: 'rgba(201,168,76,0.08)',
+                  padding: '6px 12px',
+                  borderRadius: 6,
+                  fontFamily: FONT,
+                }}>{q.badge}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats Bar Chart */}
+        <div style={{
+          background: 'rgba(255,255,255,0.03)',
+          borderRadius: 16,
+          padding: isMobile ? '32px 20px' : '48px 48px',
+          border: '1px solid rgba(255,255,255,0.06)',
+        }}>
+          <div style={{
+            fontSize: 13, fontWeight: 700, letterSpacing: '0.15em',
+            color: '#C9A84C', textTransform: 'uppercase' as const,
+            marginBottom: 32, fontFamily: FONT,
+          }}>AI IMPACT DATA</div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+            {stats.map((s, i) => (
+              <div key={i}>
+                {/* Label row */}
+                <div style={{
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+                  marginBottom: 10,
+                }}>
+                  <span style={{
+                    fontSize: isMobile ? 14 : 15, color: '#E2E8F0',
+                    fontFamily: FONT, fontWeight: 500,
+                  }}>{s.label}</span>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                    <span style={{
+                      fontSize: isMobile ? 22 : 28, fontWeight: 800,
+                      color: '#C9A84C', fontFamily: FONT,
+                      letterSpacing: '-0.02em',
+                    }}>{s.display}</span>
+                    <span style={{
+                      fontSize: 11, color: '#64748B',
+                      fontFamily: FONT,
+                    }}>{s.source}</span>
+                  </div>
+                </div>
+                {/* Bar */}
+                <div style={{
+                  height: 8, borderRadius: 4,
+                  background: 'rgba(255,255,255,0.06)',
+                  overflow: 'hidden',
+                }}>
+                  <div style={{
+                    width: `${(s.value / s.maxBar) * 100}%`,
+                    height: '100%',
+                    borderRadius: 4,
+                    background: 'linear-gradient(90deg, #C9A84C, #F0D080)',
+                    transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)',
+                    transitionDelay: `${i * 150}ms`,
+                  }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -523,7 +709,8 @@ function WhyTapexSection() {
             WEF는 2030년까지 직무 역량의 39%가 변화할 것으로 전망하며, LinkedIn은 AI 리터러시를 2025년 최고 유망 스킬 1위로 선정했습니다. 한국에서도 기업의 69.2%가 채용 시 AI 역량을 고려합니다.
           </p>
           <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
-            영어엔 TOEIC, 회계엔 CPA, 보안엔 CISSP — 각 분야의 표준 자격증이 존재합니다.
+            영어엔 TOEIC, 회계엔 CPA, 보안엔 CISSP.
+각 분야에는 표준 자격증이 있습니다.
             그런데 AI 활용 능력을 객관적으로 측정하는 글로벌 표준은 지금까지 없었습니다.
           </p>
           <p style={{
@@ -651,7 +838,8 @@ function PersonaSection() {
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
         <p style={{ textAlign: 'center', marginBottom: 56, fontSize: 16, color: '#94A3B8', fontWeight: 400, lineHeight: 1.8 }}>
-          전 세계 75%의 지식노동자가 AI를 사용하는 시대 — 증명이 필요한 모든 분께
+          전 세계 지식노동자 75%가 AI를 쓰는 시대.
+AI 역량을 증명해야 하는 모든 분께
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 20 }}>
@@ -867,9 +1055,9 @@ function ExamCategorySection() {
 function GradeSection() {
   const isMobile = useIsMobile();
   const grades = [
-    { range: '900~990', name: 'Platinum', color: '#7C3AED', desc: 'AI를 전략적으로 설계하고 조율하는 최상위 역량 — 상위 1%', bar: '95%' },
-    { range: '800~899', name: 'Gold', color: '#C9A84C', desc: 'AI를 업무 전반에 자유롭게 적용하는 팀 리더·시니어 수준', bar: '80%' },
-    { range: '700~799', name: 'Silver', color: '#64748B', desc: 'AI를 실무에 즉시 투입할 수 있는 검증된 활용 역량', bar: '65%' },
+    { range: '900~990', name: 'Platinum', color: '#7C3AED', desc: 'AI를 전략적으로 설계하고 조율하는 최상위 역량 (상위 1%)', bar: '95%' },
+    { range: '800~899', name: 'Gold', color: '#C9A84C', desc: 'AI를 업무 전반에 자유롭게 적용하는 팀 리더, 시니어 수준', bar: '80%' },
+    { range: '700~799', name: 'Silver', color: '#64748B', desc: 'AI를 실무에 즉시 적용할 수 있는 검증된 역량', bar: '65%' },
     { range: '600~699', name: 'Bronze', color: '#B45309', desc: 'AI 활용의 실무 기초를 갖춘 입문 전문가 수준', bar: '50%' },
     { range: '500~599', name: 'Developing', color: '#94A3B8', desc: 'AI 도구를 인식하고 기초적인 활용을 시작한 단계', bar: '30%' },
     { range: '499 이하', name: 'Novice', color: '#CBD5E1', desc: 'AI를 본격적으로 배우고 익혀가는 학습 단계', bar: '15%' },
@@ -1486,6 +1674,7 @@ export default function Home() {
       <NavBar />
       <HeroSection />
       <StatsSection />
+      <AuthorityQuotesSection />
       <SectionDivider />
       <TrustNumbersSection />
       <WhyTapexSection />
