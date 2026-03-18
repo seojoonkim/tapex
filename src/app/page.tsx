@@ -837,29 +837,28 @@ function ExamCategorySection() {
           {categories.map((c, i) => (
             <div key={i} style={{
               background: '#fff', borderRadius: 16,
-              padding: isMobile ? '28px 24px' : '36px 32px',
+              padding: isMobile ? '28px 24px' : '32px 28px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)',
               border: '1px solid #F1F5F9',
               transition: 'transform 0.2s, box-shadow 0.2s',
+              borderBottom: `3px solid ${c.color}`,
             }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)'; }}
             >
-              <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-                {/* SVG Icon */}
-                <div style={{ flexShrink: 0, marginTop: 2 }}>{CategoryIcons[c.code]}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: c.color, letterSpacing: '0.1em', marginBottom: 6 }}>{c.code}</div>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 8, letterSpacing: '-0.03em', fontFamily: FONT }}>{c.name}</div>
-                  <div style={{
-                    display: 'inline-block',
-                    background: `${c.color}10`, color: c.color,
-                    borderRadius: 6, padding: '2px 10px',
-                    fontSize: 11, fontWeight: 600, marginBottom: 14,
-                  }}>{c.sub}</div>
-                  <p style={{ fontSize: 14, color: '#64748B', lineHeight: 1.8, margin: 0 }}>{c.desc}</p>
-                </div>
+              {/* Icon */}
+              <div style={{
+                width: 44, height: 44, borderRadius: 12,
+                background: `${c.color}12`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 20,
+              }}>
+                {CategoryIcons[c.code]}
               </div>
+              {/* Title */}
+              <div style={{ fontWeight: 700, fontSize: 17, color: '#0F172A', marginBottom: 10, letterSpacing: '-0.02em' }}>{c.name}</div>
+              {/* Desc */}
+              <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.8, margin: 0 }}>{c.desc}</p>
             </div>
           ))}
         </div>
