@@ -1604,16 +1604,26 @@ function CTASection() {
         </div>
 
         {/* CTA Buttons */}
-        <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{
+          display: 'flex',
+          gap: 14,
+          justifyContent: 'center',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: 'center',
+          width: isMobile ? '100%' : 'auto',
+        }}>
           <a href="#practice" style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.18)',
             color: 'rgba(255,255,255,0.9)',
             borderRadius: 12, padding: '18px 40px',
-            fontWeight: 600, fontSize: isMobile ? 14 : 16,
+            fontWeight: 600, fontSize: isMobile ? 15 : 16,
             transition: 'all 0.2s',
             textDecoration: 'none',
             backdropFilter: 'blur(4px)',
+            width: isMobile ? '100%' : 'auto',
+            textAlign: 'center' as const,
+            boxSizing: 'border-box' as const,
           }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
@@ -1622,11 +1632,14 @@ function CTASection() {
             background: 'linear-gradient(135deg, #C9A84C 0%, #D4B65E 100%)',
             color: '#0A1628',
             borderRadius: 12, padding: '18px 40px',
-            fontWeight: 800, fontSize: isMobile ? 14 : 16,
+            fontWeight: 800, fontSize: isMobile ? 15 : 16,
             letterSpacing: '-0.01em',
             transition: 'transform 0.2s, box-shadow 0.2s',
             textDecoration: 'none',
             boxShadow: '0 4px 16px rgba(201,168,76,0.25)',
+            width: isMobile ? '100%' : 'auto',
+            textAlign: 'center' as const,
+            boxSizing: 'border-box' as const,
           }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(201,168,76,0.35)'; }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(201,168,76,0.25)'; }}
