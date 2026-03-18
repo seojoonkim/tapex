@@ -1091,7 +1091,7 @@ function CertificationBadgeSection() {
   const sectionFade = useScrollFadeIn();
 
   const BadgeSVG = ({ color, gradStart, gradEnd, level, idx }: { color: string; gradStart: string; gradEnd: string; level: string; idx: number }) => {
-    const gradId = `bg${idx}x${Math.random().toString(36).slice(2,6)}`;
+    const gradId = `bg_${idx}_static`;
     return (
       <svg width="110" height="110" viewBox="0 0 110 110" fill="none" style={{ display: 'block', margin: '0 auto 20px' }}>
         <defs>
@@ -1104,13 +1104,23 @@ function CertificationBadgeSection() {
         <circle cx="55" cy="50" r="48" fill="none" stroke={color} strokeWidth="1.2" opacity={0.18}/>
         {/* Main circle */}
         <circle cx="55" cy="50" r="41" fill={`url(#${gradId})`} />
-        {/* Inner highlight */}
         <circle cx="55" cy="50" r="41" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
-        {/* Star — 5-pointed, clean */}
-        <polygon
-          points="55,24 59.5,38.5 74.5,38.5 63,47.5 67.5,62 55,53 42.5,62 47,47.5 35.5,38.5 50.5,38.5"
-          fill="white" opacity={0.95}
-        />
+
+        {/* Platinum: 다이아몬드 */}
+        {idx === 0 && (
+          <polygon points="55,26 72,44 55,70 38,44" fill="white" opacity={0.95}/>
+        )}
+
+        {/* Gold: 왕관 */}
+        {idx === 1 && (
+          <path d="M36,60 L36,40 L46,52 L55,30 L64,52 L74,40 L74,60 Z" fill="white" opacity={0.95}/>
+        )}
+
+        {/* Silver: 방패 */}
+        {idx === 2 && (
+          <path d="M55,28 L72,36 L72,52 C72,62 55,72 55,72 C55,72 38,62 38,52 L38,36 Z" fill="white" opacity={0.95}/>
+        )}
+
         {/* Level text */}
         <text x="55" y="97" textAnchor="middle" fontSize="7.5" fontWeight="700" fill={color} letterSpacing="2" fontFamily="Inter, sans-serif">{level.toUpperCase()}</text>
       </svg>
