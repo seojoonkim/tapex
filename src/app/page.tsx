@@ -33,7 +33,8 @@ function useCountUp(target: number, _duration = 2000) {
   return { ref, count: target };
 }
 
-const FONT = "'DM Sans', 'Noto Sans KR', -apple-system, sans-serif";
+const FONT = "'Inter', 'Noto Serif KR', -apple-system, sans-serif";
+const FONT_SERIF = "'Playfair Display', 'Noto Serif KR', Georgia, serif";
 
 /* ─── Mobile detection hook ─── */
 function useIsMobile() {
@@ -97,7 +98,7 @@ function NavBar() {
         transition: 'all 0.3s ease',
         boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,0.04)' : 'none',
       }}>
-        <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: 22, letterSpacing: '-0.04em', color: '#0F172A', display: 'flex', alignItems: 'center', gap: 0, position: 'relative' }}>
+        <span style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: 24, letterSpacing: '-0.02em', color: '#0F172A', display: 'flex', alignItems: 'center', gap: 0, position: 'relative' }}>
           TAPEX
           <span style={{ position: 'absolute', bottom: -4, left: 0, width: '100%', height: 2.5, background: 'linear-gradient(90deg, #C9A84C, rgba(240,208,128,0.3))', borderRadius: 2 }} />
         </span>
@@ -268,7 +269,7 @@ function HeroSection() {
         letterSpacing: '-0.04em',
         marginBottom: 28,
         maxWidth: 900,
-        fontFamily: FONT,
+        fontFamily: FONT_SERIF,
         position: 'relative',
       }}>
         AI를 잘 활용하는<br />인재의 기준,{' '}
@@ -668,10 +669,10 @@ function PersonaSection() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)'; }}
             >
-              {/* Left photo */}
-              <div style={{ width: 120, flexShrink: 0, position: 'relative' as const, overflow: 'hidden' as const }}>
+              {/* Left photo — 2:3 ratio */}
+              <div style={{ width: 140, flexShrink: 0, position: 'relative' as const, overflow: 'hidden' as const, aspectRatio: '2/3' }}>
                 <img src={p.img} alt={p.title} style={{
-                  width: '100%', height: '100%', objectFit: 'cover',
+                  width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top',
                 }} />
                 <div style={{
                   position: 'absolute', inset: 0,
