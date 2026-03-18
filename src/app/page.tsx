@@ -435,13 +435,6 @@ function AuthorityQuotesSection() {
     },
   ];
 
-  const stats = [
-    { label: 'AI 스킬 연봉 프리미엄', value: 56, display: '56%', source: 'PwC 2025', maxBar: 80 },
-    { label: 'AI 파워유저 생산성 격차', value: 100, display: '6x', source: 'OpenAI', maxBar: 100 },
-    { label: '직무 역량 변화 예측', value: 39, display: '39%', source: 'WEF 2025', maxBar: 80 },
-    { label: 'AI 도구 사용 직장인', value: 75, display: '75%', source: 'Microsoft', maxBar: 80 },
-  ];
-
   return (
     <section style={{
       background: '#0F172A',
@@ -531,7 +524,7 @@ function AuthorityQuotesSection() {
           ))}
         </div>
 
-        {/* Stats Bar Chart */}
+        {/* AI Impact Data — Cards + Bar Chart */}
         <div style={{
           background: 'rgba(255,255,255,0.03)',
           borderRadius: 16,
@@ -541,50 +534,105 @@ function AuthorityQuotesSection() {
           <div style={{
             fontSize: 13, fontWeight: 700, letterSpacing: '0.15em',
             color: '#C9A84C', textTransform: 'uppercase' as const,
-            marginBottom: 32, fontFamily: FONT,
+            marginBottom: 36, fontFamily: FONT,
           }}>AI IMPACT DATA</div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-            {stats.map((s, i) => (
-              <div key={i}>
-                {/* Label row */}
-                <div style={{
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-                  marginBottom: 10,
-                }}>
-                  <span style={{
-                    fontSize: isMobile ? 14 : 15, color: '#E2E8F0',
-                    fontFamily: FONT, fontWeight: 500,
-                  }}>{s.label}</span>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                    <span style={{
-                      fontSize: isMobile ? 22 : 28, fontWeight: 800,
-                      color: '#C9A84C', fontFamily: FONT,
-                      letterSpacing: '-0.02em',
-                    }}>{s.display}</span>
-                    <span style={{
-                      fontSize: 11, color: '#64748B',
-                      fontFamily: FONT,
-                    }}>{s.source}</span>
-                  </div>
-                </div>
-                {/* Bar */}
-                <div style={{
-                  height: 8, borderRadius: 4,
-                  background: 'rgba(255,255,255,0.06)',
-                  overflow: 'hidden',
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr',
+            gap: isMobile ? 32 : 40,
+          }}>
+            {/* Left: Big Impact Number Cards */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              {[
+                { display: '6x', label: 'AI 파워유저 생산성 격차', desc: 'AI 파워유저는 동료 대비 6배 높은 생산성', source: 'OpenAI 2025' },
+                { display: '#1', label: 'AI 스킬 = 최고 연봉 프리미엄', desc: '모든 직무 스킬 중 AI가 연봉 상승 1위', source: 'PwC 2025' },
+              ].map((card, i) => (
+                <div key={i} style={{
+                  background: 'rgba(201,168,76,0.06)',
+                  border: '1px solid rgba(201,168,76,0.15)',
+                  borderRadius: 14,
+                  padding: isMobile ? '28px 24px' : '32px 28px',
+                  textAlign: 'center',
+                  flex: 1,
+                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 }}>
                   <div style={{
-                    width: `${(s.value / s.maxBar) * 100}%`,
-                    height: '100%',
-                    borderRadius: 4,
-                    background: 'linear-gradient(90deg, #C9A84C, #F0D080)',
-                    transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)',
-                    transitionDelay: `${i * 150}ms`,
-                  }} />
+                    fontSize: isMobile ? 40 : 52, fontWeight: 900,
+                    background: 'linear-gradient(135deg, #C9A84C, #F0D080)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    letterSpacing: '-0.04em', lineHeight: 1,
+                    fontFamily: FONT,
+                  }}>{card.display}</div>
+                  <div style={{
+                    fontSize: isMobile ? 14 : 15, fontWeight: 700,
+                    color: '#E2E8F0', marginTop: 12,
+                    fontFamily: FONT,
+                  }}>{card.label}</div>
+                  <div style={{
+                    fontSize: 13, color: '#94A3B8', marginTop: 6,
+                    lineHeight: 1.5, fontFamily: FONT,
+                  }}>{card.desc}</div>
+                  <div style={{
+                    fontSize: 11, color: '#64748B', marginTop: 10,
+                    fontFamily: FONT,
+                  }}>{card.source}</div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Right: Bar Charts for % stats */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28, justifyContent: 'center' }}>
+              {[
+                { label: 'AI 스킬 연봉 프리미엄', value: 56, display: '56%', desc: 'AI 활용 가능자 vs 비활용자 연봉 격차', source: 'PwC 2025' },
+                { label: '직무 역량 변화 예측', value: 39, display: '39%', desc: '2030년까지 변화할 핵심 직무 스킬 비율', source: 'WEF 2025' },
+                { label: 'AI 도구 사용 직장인', value: 75, display: '75%', desc: '이미 업무에 AI 도구를 활용 중인 비율', source: 'Microsoft 2024' },
+              ].map((s, i) => (
+                <div key={i}>
+                  <div style={{
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+                    marginBottom: 6,
+                  }}>
+                    <span style={{
+                      fontSize: isMobile ? 14 : 15, color: '#E2E8F0',
+                      fontFamily: FONT, fontWeight: 600,
+                    }}>{s.label}</span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                      <span style={{
+                        fontSize: isMobile ? 24 : 30, fontWeight: 800,
+                        color: '#C9A84C', fontFamily: FONT,
+                        letterSpacing: '-0.02em',
+                      }}>{s.display}</span>
+                      <span style={{
+                        fontSize: 11, color: '#64748B',
+                        fontFamily: FONT,
+                      }}>{s.source}</span>
+                    </div>
+                  </div>
+                  <div style={{
+                    fontSize: 12, color: '#94A3B8', marginBottom: 10,
+                    fontFamily: FONT,
+                  }}>{s.desc}</div>
+                  {/* Bar track */}
+                  <div style={{
+                    height: 10, borderRadius: 5,
+                    background: 'rgba(255,255,255,0.08)',
+                    overflow: 'hidden',
+                  }}>
+                    <div style={{
+                      width: `${s.value}%`,
+                      height: '100%',
+                      borderRadius: 5,
+                      background: 'linear-gradient(90deg, #C9A84C, #F0D080)',
+                      boxShadow: '0 0 12px rgba(201,168,76,0.3)',
+                      transition: 'width 1.2s cubic-bezier(0.16,1,0.3,1)',
+                      transitionDelay: `${i * 200}ms`,
+                    }} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -611,24 +659,17 @@ function TrustNumbersSection() {
 
   return (
     <section style={{
-      background: '#0F172A',
+      background: '#FFFFFF',
       padding: isMobile ? '80px 20px' : '120px 48px',
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Subtle grid pattern */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)`,
-        backgroundSize: '80px 80px',
-        pointerEvents: 'none',
-      }} />
 
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', textAlign: 'center', position: 'relative' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12 }}>TRUST IN NUMBERS</p>
         <h2 style={{
           fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
-          color: '#fff', marginBottom: isMobile ? 48 : 72,
+          color: '#0F172A', marginBottom: isMobile ? 48 : 72,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>글로벌 신뢰, 숫자로 증명</h2>
 
@@ -638,19 +679,19 @@ function TrustNumbersSection() {
               textAlign: 'center',
               padding: '32px 16px',
               borderRadius: 16,
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.06)',
+              background: '#F8FAFC',
+              border: '1px solid #E2E8F0',
             }}>
               <div style={{
                 fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900,
-                color: '#fff', letterSpacing: '-0.04em', lineHeight: 1,
+                color: '#0F172A', letterSpacing: '-0.04em', lineHeight: 1,
                 fontFamily: FONT,
               }}>
                 {counters[i].count.toLocaleString()}
                 <span style={{ color: '#C9A84C' }}>{item.suffix}</span>
               </div>
               <div style={{
-                fontSize: 14, color: 'rgba(255,255,255,0.45)', marginTop: 12, lineHeight: 1.8,
+                fontSize: 14, color: '#64748B', marginTop: 12, lineHeight: 1.8,
                 fontWeight: 500,
               }}>{item.label}</div>
             </div>
@@ -726,8 +767,9 @@ function WhyTapexSection() {
           }}>
             <div style={{ fontSize: 18, flexShrink: 0, marginTop: 2 }}>🔬</div>
             <p style={{ fontSize: 13, color: '#64748B', lineHeight: 1.8, margin: 0 }}>
-              시험 문항과 평가 체계는 LLM 벤치마크를 설계하는 글로벌 최고 수준의
-              AI 개발자 및 리서처들이 직접 제작했습니다.
+              시험 문항과 평가 체계는 GPT, Claude, Gemini 등 주요 LLM의
+              벤치마크를 설계한 AI 개발자와 리서처들이 직접 제작했습니다.
+              특정 도구에 종속되지 않는 범용 AI 역량을 측정합니다.
             </p>
           </div>
         </div>
