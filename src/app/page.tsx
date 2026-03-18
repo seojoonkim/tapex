@@ -1057,7 +1057,7 @@ function ExamCategorySection() {
           사용할 AI 모델은 수험생이 자유롭게 선택
         </p>
         <p style={{ textAlign: 'center', fontSize: 14, color: '#64748B', marginBottom: 16, lineHeight: 1.8 }}>
-          시험 문항은 LLM 벤치마크를 설계하는 글로벌 최고 수준의 AI 개발자 및 리서처들이 직접 제작합니다
+          GPT·Claude·Gemini 벤치마크를 설계한 AI 개발자 및 리서처들이 직접 제작한 시험
         </p>
         {/* LLM choice badge */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 56 }}>
