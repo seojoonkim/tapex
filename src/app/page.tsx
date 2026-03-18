@@ -1535,6 +1535,11 @@ function CertificationBadgeSection() {
 /* ─── CTA ─── */
 function CTASection() {
   const isMobile = useIsMobile();
+  const checklist = [
+    '즉시 발급되는 디지털 인증 배지',
+    'LinkedIn, 사람인, 잡코리아 프로필 연동',
+    '2년 유효, 갱신 시 할인 혜택',
+  ];
   return (
     <section id="pricing" style={{
       background: 'linear-gradient(160deg, #060E1F 0%, #0F172A 40%, #1B3A6B 100%)',
@@ -1560,51 +1565,63 @@ function CTASection() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative' }}>
-        {/* Price badge */}
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)',
-          borderRadius: 100, padding: '8px 20px',
-          fontSize: 13, fontWeight: 600, color: '#C9A84C',
-          marginBottom: 32,
-        }}>
-          온라인 연습 ₩14,000 · 본시험 ₩79,000
-        </div>
-
+      <div style={{ position: 'relative', maxWidth: 640, margin: '0 auto' }}>
         <h2 style={{
           fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
-          color: '#fff', marginBottom: 20,
+          color: '#fff', marginBottom: 24,
           letterSpacing: '-0.04em', lineHeight: 1.1,
           fontFamily: FONT,
         }}>지금 바로 시작하세요.</h2>
+
         <p style={{
-          color: 'rgba(255,255,255,0.5)', fontSize: 18,
-          marginBottom: 52, maxWidth: 560, margin: '0 auto 52px',
-          lineHeight: 1.8,
+          color: 'rgba(255,255,255,0.55)', fontSize: isMobile ? 15 : 17,
+          maxWidth: 540, margin: '0 auto',
+          lineHeight: 1.9,
+          marginBottom: 36,
+          wordBreak: 'keep-all' as const,
         }}>
-          2030년까지 직무 역량의 39%가 바뀝니다(WEF).<br />
-          지금 내 AI 수준을 확인하고, 공식 인증받으세요.
+          AI 역량 인증은 더 이상 선택이 아닙니다.<br />
+          WEF는 2030년까지 직무 역량의 39%가 바뀔 것이라 예측합니다.<br />
+          먼저 준비한 사람이 기회를 잡습니다.<br />
+          온라인 연습으로 지금 내 수준을 확인하고, 본시험으로 공식 인증받으세요.
         </p>
+
+        {/* Checklist */}
+        <div style={{
+          display: 'flex', flexDirection: 'column', gap: 12,
+          alignItems: 'center', marginBottom: 44,
+        }}>
+          {checklist.map((item, i) => (
+            <div key={i} style={{
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              fontSize: isMobile ? 13 : 14, color: 'rgba(255,255,255,0.6)',
+            }}>
+              <span style={{ color: '#C9A84C', fontSize: 15, fontWeight: 700 }}>✓</span>
+              {item}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Buttons */}
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#practice" style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.18)',
             color: 'rgba(255,255,255,0.9)',
             borderRadius: 12, padding: '18px 40px',
-            fontWeight: 600, fontSize: 16,
+            fontWeight: 600, fontSize: isMobile ? 14 : 16,
             transition: 'all 0.2s',
             textDecoration: 'none',
             backdropFilter: 'blur(4px)',
           }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-          >온라인 연습 ₩14,000</a>
+          >온라인 연습 시작 — ₩14,000</a>
           <a href="#register" style={{
             background: 'linear-gradient(135deg, #C9A84C 0%, #D4B65E 100%)',
             color: '#0A1628',
             borderRadius: 12, padding: '18px 40px',
-            fontWeight: 800, fontSize: 16,
+            fontWeight: 800, fontSize: isMobile ? 14 : 16,
             letterSpacing: '-0.01em',
             transition: 'transform 0.2s, box-shadow 0.2s',
             textDecoration: 'none',
