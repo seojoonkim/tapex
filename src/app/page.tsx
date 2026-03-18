@@ -261,7 +261,7 @@ function HeroSection() {
       {/* Headline */}
       <h1 style={{
         ...fade2,
-        fontSize: 'clamp(44px, 8.5vw, 100px)',
+        fontSize: 'clamp(36px, 6.5vw, 76px)',
         fontWeight: 900,
         color: '#fff',
         lineHeight: 1.08,
@@ -392,7 +392,7 @@ function StatsSection() {
             transition: 'background 0.2s',
           }}>
             <div style={{
-              fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 900,
+              fontSize: 'clamp(22px, 3.5vw, 36px)', fontWeight: 900,
               color: '#0F172A', letterSpacing: '-0.04em', lineHeight: 1,
               fontFamily: FONT,
             }}>{s.num}</div>
@@ -439,7 +439,7 @@ function TrustNumbersSection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', textAlign: 'center', position: 'relative' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12 }}>TRUST IN NUMBERS</p>
         <h2 style={{
-          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#fff', marginBottom: isMobile ? 48 : 72,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>숫자로 보는 TAPEX</h2>
@@ -454,7 +454,7 @@ function TrustNumbersSection() {
               border: '1px solid rgba(255,255,255,0.06)',
             }}>
               <div style={{
-                fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900,
+                fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900,
                 color: '#fff', letterSpacing: '-0.04em', lineHeight: 1,
                 fontFamily: FONT,
               }}>
@@ -504,7 +504,7 @@ function WhyTapexSection() {
         <div style={{ flex: '1 1 440px' }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 16 }}>WHY TAPEX</p>
           <h2 style={{
-            fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900,
+            fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
@@ -647,7 +647,7 @@ function PersonaSection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', position: 'relative' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>FOR EVERYONE</p>
         <h2 style={{
-          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
@@ -807,7 +807,7 @@ function ExamCategorySection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>EXAM STRUCTURE</p>
         <h2 style={{
-          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 12,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>6가지 역량으로 측정합니다</h2>
@@ -896,7 +896,7 @@ function GradeSection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12, textAlign: 'center' }}>GRADE SYSTEM</p>
         <h2 style={{
-          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 56,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>당신의 점수는 어디에?</h2>
@@ -995,7 +995,7 @@ function EnterpriseSection() {
         <div style={{ flex: '1 1 440px' }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 16 }}>FOR ENTERPRISE</p>
           <h2 style={{
-            fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+            fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
@@ -1124,7 +1124,7 @@ function CertificationBadgeSection() {
       <div ref={sectionFade.ref} style={{ ...sectionFade.style, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: '#C9A84C', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: 12 }}>DIGITAL BADGE</p>
         <h2 style={{
-          fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>인증 배지를 받으세요</h2>
@@ -1235,7 +1235,7 @@ function CTASection() {
         </div>
 
         <h2 style={{
-          fontSize: 'clamp(36px, 7vw, 64px)', fontWeight: 900,
+          fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#fff', marginBottom: 20,
           letterSpacing: '-0.04em', lineHeight: 1.1,
           fontFamily: FONT,
