@@ -604,32 +604,28 @@ function PersonaSection() {
       quote: '"AI 잘 쓴다고 써봤는데, 증명할 방법이 없더라고요."',
       detail: 'TAPEX Bronze(600점+)면 서류 통과율이 달라집니다. 학생 40% 할인, 링크드인 배지 발급.',
       accent: '#C9A84C',
-      accentBg: 'rgba(201,168,76,0.06)',
-      icon: '🎓',
+      img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
     },
     {
       title: '직장인 · 이직자',
       quote: '"팀에서 제가 AI 제일 잘 쓰는데, 아무도 몰라요."',
       detail: 'TAPEX Gold(800점+)로 승진 심사, 연봉 협상, 이직 시 즉시 활용 가능한 스펙.',
       accent: '#1B3A6B',
-      accentBg: 'rgba(27,58,107,0.04)',
-      icon: '💼',
+      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
     },
     {
       title: '프리랜서 · 크리에이터',
       quote: '"클라이언트가 AI 쓸 수 있냐고 물어보는데."',
       detail: 'TAPEX 점수 + 직무별 마이크로 배지로 포트폴리오를 강화하세요.',
       accent: '#7C3AED',
-      accentBg: 'rgba(124,58,237,0.04)',
-      icon: '🎨',
+      img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80',
     },
     {
       title: '기업 HR · 교육 담당',
       quote: '"AI 활용 가능이 50%인데, 누구를 믿죠?"',
       detail: 'TAPEX for Recruit API로 지원자 점수를 자동 검증. 잡코리아·사람인 연동.',
       accent: '#059669',
-      accentBg: 'rgba(5,150,105,0.04)',
-      icon: '🏢',
+      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
     },
   ];
 
@@ -664,53 +660,38 @@ function PersonaSection() {
             <div key={i} style={{
               background: '#fff',
               borderRadius: 20,
-              padding: isMobile ? '28px 24px' : '36px 32px',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)',
-              border: '1px solid #F1F5F9',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-              position: 'relative' as const,
+              boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
               overflow: 'hidden' as const,
+              display: 'flex',
+              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
             }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.08)';
-                e.currentTarget.style.borderColor = `${p.accent}40`;
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)';
-                e.currentTarget.style.borderColor = '#F1F5F9';
-              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.1)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)'; }}
             >
-              {/* Accent top bar */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0,
-                height: 3, background: `linear-gradient(90deg, ${p.accent}, ${p.accent}60)`,
-              }} />
-
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, marginBottom: 16 }}>
-                {/* Number + icon */}
+              {/* Left photo */}
+              <div style={{ width: 120, flexShrink: 0, position: 'relative' as const, overflow: 'hidden' as const }}>
+                <img src={p.img} alt={p.title} style={{
+                  width: '100%', height: '100%', objectFit: 'cover',
+                }} />
                 <div style={{
-                  width: 48, height: 48, borderRadius: 14,
-                  background: p.accentBg,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 20, flexShrink: 0,
-                }}>{p.icon}</div>
-                <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: p.accent, letterSpacing: '0.1em', marginBottom: 4 }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </div>
-                  <h3 style={{ fontWeight: 700, fontSize: 18, color: '#0F172A', margin: 0 }}>{p.title}</h3>
-                </div>
+                  position: 'absolute', inset: 0,
+                  background: `linear-gradient(to right, ${p.accent}30, transparent)`,
+                }} />
               </div>
 
-              <p style={{
-                fontSize: 15, fontStyle: 'italic', color: '#64748B',
-                marginBottom: 14, lineHeight: 1.6,
-                paddingLeft: 16,
-                borderLeft: `2px solid ${p.accent}30`,
-              }}>{p.quote}</p>
-              <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.8 }}>{p.detail}</p>
+              {/* Right content */}
+              <div style={{ padding: '28px 24px', flex: 1 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: p.accent, letterSpacing: '0.1em', marginBottom: 6 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <h3 style={{ fontWeight: 700, fontSize: 17, color: '#0F172A', marginBottom: 12 }}>{p.title}</h3>
+                <p style={{
+                  fontSize: 14, fontStyle: 'italic', color: '#64748B',
+                  marginBottom: 12, lineHeight: 1.6,
+                  paddingLeft: 12, borderLeft: `2px solid ${p.accent}40`,
+                }}>{p.quote}</p>
+                <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8 }}>{p.detail}</p>
+              </div>
             </div>
           ))}
         </div>
