@@ -1314,10 +1314,10 @@ function PartnerSection() {
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
         <p style={{ fontSize: 11, letterSpacing: '0.25em', color: '#CBD5E1', textTransform: 'uppercase' as const, marginBottom: 40, fontWeight: 600 }}>인증 파트너</p>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 40 : 72, flexWrap: 'wrap' }}>
-          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 28, width: 'auto', objectFit: 'contain', opacity: 0.65 }} />
-          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 28, width: 'auto', objectFit: 'contain', opacity: 0.65 }} />
-          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 28, width: 'auto', objectFit: 'contain', opacity: 0.65 }} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 20 : 72, flexWrap: 'nowrap' }}>
+          <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: isMobile ? 20 : 28, width: 'auto', maxWidth: isMobile ? 90 : 160, objectFit: 'contain', opacity: 0.65 }} />
+          <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: isMobile ? 20 : 28, width: 'auto', maxWidth: isMobile ? 90 : 160, objectFit: 'contain', opacity: 0.65 }} />
+          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: isMobile ? 20 : 28, width: 'auto', maxWidth: isMobile ? 90 : 160, objectFit: 'contain', opacity: 0.65 }} />
         </div>
       </div>
     </section>
