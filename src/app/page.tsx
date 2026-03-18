@@ -838,9 +838,7 @@ function ExamCategorySection() {
               background: '#fff', borderRadius: 16,
               padding: isMobile ? '28px 24px' : '32px 28px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)',
-              border: '1px solid #F1F5F9',
               transition: 'transform 0.2s, box-shadow 0.2s',
-              borderBottom: `3px solid ${c.color}`,
             }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.03)'; }}
