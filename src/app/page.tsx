@@ -37,7 +37,7 @@ const FONT = "'Inter', 'Noto Sans KR', -apple-system, sans-serif";
 
 /* ─── Mobile detection hook ─── */
 function useIsMobile() {
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(true);
   useEffect(() => {
     const check = () => setMobile(window.innerWidth < 768);
     check();
@@ -61,7 +61,7 @@ function SectionDivider({ color = '#F1F5F9' }: { color?: string }) {
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
