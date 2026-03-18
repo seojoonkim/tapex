@@ -1101,7 +1101,7 @@ function PartnerSection() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: isMobile ? 40 : 72, flexWrap: 'wrap' }}>
           <img src="/logos/hankook.jpg" alt="한국경제신문" style={{ height: 36, maxWidth: 160, objectFit: 'contain', opacity: 0.65 }} />
           <img src="/logos/hashed.jpg" alt="HASHED" style={{ height: 36, maxWidth: 160, objectFit: 'contain', opacity: 0.65 }} />
-          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 36, maxWidth: 160, objectFit: 'contain', filter: 'invert(1)', opacity: 0.65 }} />
+          <img src="/logos/bloomingbit.jpg" alt="bloomingbit" style={{ height: 36, maxWidth: 160, objectFit: 'contain', opacity: 0.65 }} />
         </div>
       </div>
     </section>
