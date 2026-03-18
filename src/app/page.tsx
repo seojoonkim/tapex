@@ -418,6 +418,7 @@ function AuthorityQuotesSection() {
       title: 'Professor',
       company: 'Harvard Business School',
       badge: 'HARVARD',
+      avatar: '/avatars/karim-lakhani.jpg',
     },
     {
       text: 'Every company will be an AI company or will be disrupted by one.',
@@ -425,6 +426,7 @@ function AuthorityQuotesSection() {
       title: 'CEO',
       company: 'NVIDIA',
       badge: 'NVIDIA',
+      avatar: '/avatars/jensen-huang.jpg',
     },
     {
       text: 'AI is not a technology trend — it is the most transformative force in the history of work.',
@@ -432,6 +434,7 @@ function AuthorityQuotesSection() {
       title: 'CEO',
       company: 'Microsoft',
       badge: 'MICROSOFT',
+      avatar: '/avatars/satya-nadella.jpg',
     },
   ];
 
@@ -499,16 +502,29 @@ function AuthorityQuotesSection() {
                 paddingTop: 20,
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               }}>
-                <div>
-                  <div style={{
-                    fontSize: 15, fontWeight: 700,
-                    color: '#C9A84C',
-                    fontFamily: FONT,
-                  }}>{q.name}</div>
-                  <div style={{
-                    fontSize: 13, color: '#94A3B8',
-                    marginTop: 2, fontFamily: FONT,
-                  }}>{q.title}, {q.company}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <img
+                    src={q.avatar}
+                    alt={q.name}
+                    style={{
+                      width: 48, height: 48,
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      flexShrink: 0,
+                      border: '2px solid rgba(201,168,76,0.3)',
+                    }}
+                  />
+                  <div>
+                    <div style={{
+                      fontSize: 15, fontWeight: 700,
+                      color: '#C9A84C',
+                      fontFamily: FONT,
+                    }}>{q.name}</div>
+                    <div style={{
+                      fontSize: 13, color: '#94A3B8',
+                      marginTop: 2, fontFamily: FONT,
+                    }}>{q.title}, {q.company}</div>
+                  </div>
                 </div>
                 <span style={{
                   fontSize: 10, fontWeight: 800,
