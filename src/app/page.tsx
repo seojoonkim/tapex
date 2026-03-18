@@ -33,8 +33,7 @@ function useCountUp(target: number, _duration = 2000) {
   return { ref, count: target };
 }
 
-const FONT = "'Inter', 'Noto Serif KR', -apple-system, sans-serif";
-const FONT_SERIF = "'Playfair Display', 'Noto Serif KR', Georgia, serif";
+const FONT = "'Inter', 'Noto Sans KR', -apple-system, sans-serif";
 
 /* ─── Mobile detection hook ─── */
 function useIsMobile() {
@@ -98,7 +97,7 @@ function NavBar() {
         transition: 'all 0.3s ease',
         boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,0.04)' : 'none',
       }}>
-        <span style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: 24, letterSpacing: '-0.02em', color: '#0F172A', display: 'flex', alignItems: 'center', gap: 0, position: 'relative' }}>
+        <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 24, letterSpacing: '-0.02em', color: '#0F172A', display: 'flex', alignItems: 'center', gap: 0, position: 'relative' }}>
           TAPEX
           <span style={{ position: 'absolute', bottom: -4, left: 0, width: '100%', height: 2.5, background: 'linear-gradient(90deg, #C9A84C, rgba(240,208,128,0.3))', borderRadius: 2 }} />
         </span>
@@ -269,7 +268,7 @@ function HeroSection() {
         letterSpacing: '-0.04em',
         marginBottom: 28,
         maxWidth: 900,
-        fontFamily: FONT_SERIF,
+        fontFamily: FONT,
         position: 'relative',
       }}>
         AI를 잘 활용하는<br />인재의 기준,{' '}
@@ -442,7 +441,7 @@ function TrustNumbersSection() {
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#fff', marginBottom: isMobile ? 48 : 72,
-          letterSpacing: '-0.04em', fontFamily: FONT_SERIF,
+          letterSpacing: '-0.04em', fontFamily: FONT,
         }}>숫자로 보는 TAPEX</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 24 : 40 }}>
@@ -508,7 +507,7 @@ function WhyTapexSection() {
             fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
-            fontFamily: FONT_SERIF,
+            fontFamily: FONT,
           }}>일은 이미<br />AI가 하고 있다</h2>
 
           <div style={{
@@ -650,7 +649,7 @@ function PersonaSection() {
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 16,
-          letterSpacing: '-0.04em', fontFamily: FONT_SERIF,
+          letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
         <p style={{ textAlign: 'center', marginBottom: 56, fontSize: 16, color: '#94A3B8', fontWeight: 400, lineHeight: 1.8 }}>
           취준생부터 기업 HR까지 — AI 활용 능력이 필요한 모든 분께
@@ -810,7 +809,7 @@ function ExamCategorySection() {
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 12,
-          letterSpacing: '-0.04em', fontFamily: FONT_SERIF,
+          letterSpacing: '-0.04em', fontFamily: FONT,
         }}>6가지 역량으로 측정합니다</h2>
         <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 16, lineHeight: 1.8 }}>
           사용할 AI 모델은 수험생이 자유롭게 선택
@@ -899,7 +898,7 @@ function GradeSection() {
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 56,
-          letterSpacing: '-0.04em', fontFamily: FONT_SERIF,
+          letterSpacing: '-0.04em', fontFamily: FONT,
         }}>당신의 점수는 어디에?</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 12 }}>
@@ -999,7 +998,7 @@ function EnterpriseSection() {
             fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
-            fontFamily: FONT_SERIF,
+            fontFamily: FONT,
           }}>AI 잘 쓰는 사람,<br />TAPEX 점수로 찾으세요</h2>
 
           <div style={{
@@ -1127,7 +1126,7 @@ function CertificationBadgeSection() {
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 48px)', fontWeight: 900,
           color: '#0F172A', marginBottom: 16,
-          letterSpacing: '-0.04em', fontFamily: FONT_SERIF,
+          letterSpacing: '-0.04em', fontFamily: FONT,
         }}>인증 배지를 받으세요</h2>
         <p style={{ fontSize: 16, color: '#94A3B8', marginBottom: 64, lineHeight: 1.8 }}>
           LinkedIn 프로필에 인증 배지를 추가하세요
@@ -1153,7 +1152,7 @@ function CertificationBadgeSection() {
               }}
             >
               <BadgeSVG color={b.color} gradStart={b.gradStart} gradEnd={b.gradEnd} level={b.level} idx={i} />
-              <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 4, letterSpacing: '-0.03em', fontFamily: FONT_SERIF }}>
+              <div style={{ fontWeight: 800, fontSize: 18, color: '#0F172A', marginBottom: 4, letterSpacing: '-0.03em', fontFamily: FONT }}>
                 TAPEX {b.level}
               </div>
               <div style={{ fontSize: 13, color: '#94A3B8', marginBottom: 16 }}>{b.range}점</div>
@@ -1239,7 +1238,7 @@ function CTASection() {
           fontSize: 'clamp(36px, 7vw, 64px)', fontWeight: 900,
           color: '#fff', marginBottom: 20,
           letterSpacing: '-0.04em', lineHeight: 1.1,
-          fontFamily: FONT_SERIF,
+          fontFamily: FONT,
         }}>지금 바로 시작하세요.</h2>
         <p style={{
           color: 'rgba(255,255,255,0.5)', fontSize: 18,
@@ -1311,7 +1310,7 @@ function FooterSection() {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(160px, 1fr))', gap: isMobile ? 32 : 48, marginBottom: isMobile ? 40 : 64 }}>
           {/* Brand column */}
           <div>
-            <span style={{ fontFamily: FONT_SERIF, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
+            <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
             <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, marginBottom: 16 }}>
               Test of AI Prompt EXpertise<br />
               세계 최초 AI 활용 능력 인증 시험
