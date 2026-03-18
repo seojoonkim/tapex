@@ -1662,33 +1662,14 @@ function FooterSection() {
   return (
     <footer style={{ background: '#0A0F1A', padding: isMobile ? '60px 20px 32px' : '80px 48px 40px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        {/* Top: columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(160px, 1fr))', gap: isMobile ? 32 : 48, marginBottom: isMobile ? 40 : 64 }}>
-          {/* Brand column */}
-          <div>
-            <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
-            <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, marginBottom: 16 }}>
-              Test of AI Prompt EXpertise<br />
-              글로벌 AI 활용 역량 인증 표준
-            </p>
-            <p style={{ fontSize: 13, color: '#475569' }}>contact@tapex.kr</p>
-          </div>
-
-          {columns.map((col, i) => (
-            <div key={i}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#94A3B8', marginBottom: 20, letterSpacing: '0.05em', textTransform: 'uppercase' as const }}>{col.title}</div>
-              {col.links.map((link, j) => (
-                <a key={j} href="#" style={{
-                  display: 'block', fontSize: 13, color: '#475569',
-                  marginBottom: 12, textDecoration: 'none',
-                  transition: 'color 0.2s',
-                }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#94A3B8')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#475569')}
-                >{link}</a>
-              ))}
-            </div>
-          ))}
+        {/* Brand + contact only */}
+        <div style={{ marginBottom: isMobile ? 40 : 64 }}>
+          <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
+          <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, marginBottom: 12 }}>
+            Test of AI Prompt EXpertise<br />
+            글로벌 AI 활용 역량 인증 표준
+          </p>
+          <p style={{ fontSize: 13, color: '#475569' }}>contact@tapex.kr</p>
         </div>
 
         {/* Divider */}
