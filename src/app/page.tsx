@@ -1090,21 +1090,32 @@ function CertificationBadgeSection() {
 
   const sectionFade = useScrollFadeIn();
 
-  const BadgeSVG = ({ color, gradStart, gradEnd, level, idx }: { color: string; gradStart: string; gradEnd: string; level: string; idx: number }) => (
-    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" style={{ display: 'block', margin: '0 auto 20px' }}>
-      <circle cx="50" cy="45" r="42" fill="none" stroke={color} strokeWidth="1" opacity={0.2}/>
-      <circle cx="50" cy="45" r="36" fill={`url(#badgeGrad${idx})`} />
-      <circle cx="50" cy="45" r="36" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5"/>
-      <polygon points="50,20 54.5,33 68,33 57,41 61,55 50,47 39,55 43,41 32,33 45.5,33" fill="white" opacity={0.9}/>
-      <text x="50" y="88" textAnchor="middle" fontSize="8" fontWeight="700" fill={color} letterSpacing="2.5" style={{ fontFamily: FONT }}>{level.toUpperCase()}</text>
-      <defs>
-        <linearGradient id={`badgeGrad${idx}`} x1="14" y1="9" x2="86" y2="81" gradientUnits="userSpaceOnUse">
-          <stop stopColor={gradStart}/>
-          <stop offset="1" stopColor={gradEnd}/>
-        </linearGradient>
-      </defs>
-    </svg>
-  );
+  const BadgeSVG = ({ color, gradStart, gradEnd, level, idx }: { color: string; gradStart: string; gradEnd: string; level: string; idx: number }) => {
+    const gradId = `bg${idx}x${Math.random().toString(36).slice(2,6)}`;
+    return (
+      <svg width="110" height="110" viewBox="0 0 110 110" fill="none" style={{ display: 'block', margin: '0 auto 20px' }}>
+        <defs>
+          <linearGradient id={gradId} x1="15" y1="10" x2="95" y2="90" gradientUnits="userSpaceOnUse">
+            <stop stopColor={gradStart}/>
+            <stop offset="1" stopColor={gradEnd}/>
+          </linearGradient>
+        </defs>
+        {/* Outer ring */}
+        <circle cx="55" cy="50" r="48" fill="none" stroke={color} strokeWidth="1.2" opacity={0.18}/>
+        {/* Main circle */}
+        <circle cx="55" cy="50" r="41" fill={`url(#${gradId})`} />
+        {/* Inner highlight */}
+        <circle cx="55" cy="50" r="41" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1"/>
+        {/* Star — 5-pointed, clean */}
+        <polygon
+          points="55,24 59.5,38.5 74.5,38.5 63,47.5 67.5,62 55,53 42.5,62 47,47.5 35.5,38.5 50.5,38.5"
+          fill="white" opacity={0.95}
+        />
+        {/* Level text */}
+        <text x="55" y="97" textAnchor="middle" fontSize="7.5" fontWeight="700" fill={color} letterSpacing="2" fontFamily="Inter, sans-serif">{level.toUpperCase()}</text>
+      </svg>
+    );
+  };
 
   return (
     <section style={{
