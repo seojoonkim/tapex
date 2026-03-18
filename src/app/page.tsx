@@ -255,7 +255,7 @@ function HeroSection() {
         position: 'relative',
       }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A84C', display: 'inline-block', boxShadow: '0 0 8px rgba(201,168,76,0.5)' }} />
-        한국경제신문 공식 인증 · 글로벌 160개국 AI 역량 표준 시험
+        한국경제신문 공식 인증 · 80분 · 80문항 · 990점 만점
       </div>
 
       {/* Headline */}
@@ -292,8 +292,8 @@ function HeroSection() {
         <span style={{ fontWeight: 700, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.08em', fontSize: '0.85em' }}>
           Test of AI Prompt EXpertise
         </span><br />
-        AI 스킬 보유자의 연봉은 평균 56% 높습니다.<br />
-        당신의 AI 역량을 990점 척도로 증명하세요
+        AI를 잘 쓰는 사람의 연봉은 56% 더 높습니다.<br />
+        이력서에 &apos;AI 활용 가능&apos; 대신, 점수로 증명하세요
       </p>
 
       {/* CTA */}
@@ -310,7 +310,7 @@ function HeroSection() {
         }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(201,168,76,0.35)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(201,168,76,0.25)'; }}
-        >시험 접수하기</a>
+        >내 AI 실력 측정하기</a>
         <a href="#practice" style={{
           background: 'rgba(255,255,255,0.06)',
           border: '1px solid rgba(255,255,255,0.18)',
@@ -323,7 +323,7 @@ function HeroSection() {
         }}
           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-        >온라인 연습 시작</a>
+        >무료 샘플 문제 풀기</a>
       </div>
 
       {/* Trust indicators under CTA */}
@@ -332,7 +332,7 @@ function HeroSection() {
         display: 'flex', gap: 24, marginTop: 48,
         position: 'relative', flexWrap: 'wrap', justifyContent: 'center',
       }}>
-        {['12,000+ 사전등록', '160+ 개국 응시', 'ChatGPT · Claude · Gemini · Grok'].map((text, i) => (
+        {['12,000+ 사전등록', '온라인 어디서나 응시', 'ChatGPT · Claude · Gemini · Grok 선택'].map((text, i) => (
           <div key={i} style={{
             display: 'flex', alignItems: 'center', gap: 6,
             fontSize: 12, color: 'rgba(255,255,255,0.4)', fontWeight: 500,
@@ -365,10 +365,10 @@ function HeroSection() {
 function StatsSection() {
   const isMobile = useIsMobile();
   const stats = [
-    { num: '80문항', desc: '프롬프팅 · 분석 · 코드 · 문서 · 창작 · 멀티모달', icon: '📋' },
-    { num: '990점', desc: 'TOEIC 방식의 정밀한 역량 척도', icon: '📊' },
-    { num: '6개', desc: 'WEF 선정 핵심 AI 역량 기반 카테고리', icon: '🤖' },
-    { num: '2년', desc: 'AI 기술 변화를 반영한 갱신 주기', icon: '🔄' },
+    { num: '80문항', desc: '실제 AI를 쓰면서 푸는 실전형 시험', icon: '📋' },
+    { num: '990점', desc: 'TOEIC처럼 점수로 역량을 증명', icon: '📊' },
+    { num: '80분', desc: '온라인으로 집에서 응시 가능', icon: '⏱️' },
+    { num: '2년', desc: 'AI 트렌드를 반영한 인증 갱신', icon: '🔄' },
   ];
 
   return (
@@ -455,7 +455,7 @@ function AuthorityQuotesSection() {
             color: '#FFFFFF', lineHeight: 1.4,
             letterSpacing: '-0.03em', margin: 0,
             fontFamily: FONT,
-          }}>AI 역량은 이미 새로운 기준이 되었습니다</h2>
+          }}>세계 최고 리더들이 AI 역량을 강조합니다</h2>
         </div>
 
         {/* Quotes Grid */}
@@ -644,10 +644,10 @@ function AuthorityQuotesSection() {
 function TrustNumbersSection() {
   const isMobile = useIsMobile();
   const items = [
-    { target: 12000, suffix: '+', label: '사전 등록 완료' },
-    { target: 50, suffix: '+', label: '기업·기관 파트너' },
-    { target: 4, suffix: '대', label: 'LLM 통합' },
-    { target: 160, suffix: '+', label: '개국 온라인 응시' },
+    { target: 12000, suffix: '+', label: '사전 등록자' },
+    { target: 50, suffix: '+', label: '기업 파트너' },
+    { target: 4, suffix: '종', label: 'AI 모델 지원' },
+    { target: 160, suffix: '+', label: '개국 응시 가능' },
   ];
 
   const c0 = useCountUp(items[0].target);
@@ -738,7 +738,7 @@ function WhyTapexSection() {
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
-          }}>AI 파워유저와<br />나머지의 격차, 6배</h2>
+          }}>같은 회사, 같은 직급.<br />AI 쓰는 사람만 6배 빠릅니다.</h2>
 
           <div style={{
             width: 40, height: 3,
@@ -753,9 +753,8 @@ function WhyTapexSection() {
             WEF는 2030년까지 직무 역량의 39%가 변화할 것으로 전망하며, LinkedIn은 AI 리터러시를 2025년 최고 유망 스킬 1위로 선정했습니다. 한국에서도 기업의 69.2%가 채용 시 AI 역량을 고려합니다.
           </p>
           <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 32 }}>
-            영어엔 TOEIC, 회계엔 CPA, 보안엔 CISSP.
-각 분야에는 표준 자격증이 있습니다.
-            그런데 AI 활용 능력을 객관적으로 측정하는 글로벌 표준은 지금까지 없었습니다.
+            영어엔 TOEIC, 회계엔 CPA, 보안엔 CISSP — 모든 분야에 표준 자격증이 있습니다.
+            그런데 AI 활용 능력? 아직 &apos;잘 씁니다&apos;라는 말뿐, 증명할 방법이 없었습니다.
           </p>
           <p style={{
             fontSize: 22, fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em',
@@ -843,29 +842,29 @@ function PersonaSection() {
   const personas = [
     {
       title: '취준생 · 대학생',
-      quote: '"자소서에 \'AI 활용 가능\'이라고 쓰는 사람이 저만 있는 게 아니더라고요."',
-      detail: '한국 Z세대 68%가 AI 학습이 필수라고 인식. TAPEX Bronze(600+)는 객관적 수치로 차별화합니다. 학생 40% 할인, LinkedIn 배지 발급.',
+      quote: '"면접에서 AI 쓸 줄 아냐고 물어보는데, 뭘 보여줘야 할지 모르겠어요."',
+      detail: '자소서에 \'AI 활용 가능\'은 이제 모두가 씁니다. TAPEX 점수는 면접관이 바로 이해하는 객관적 스펙입니다. 학생 40% 할인, LinkedIn 배지 발급.',
       accent: '#C9A84C',
       img: '/persona-student.jpg',
     },
     {
       title: '직장인 · 이직자',
-      quote: '"AI로 주간 10시간을 아끼는데, 연봉 협상 때 증명할 방법이 없었어요."',
-      detail: 'AI 스킬 보유자 연봉 56% 프리미엄 시대(PwC). TAPEX Gold(800+)는 승진·이직의 결정적 스펙입니다.',
+      quote: '"팀에서 AI로 제일 많이 아끼는데, 인사 평가에는 안 잡혀요."',
+      detail: 'AI로 만드는 성과, 이제 숫자로 증명할 때입니다. TAPEX Gold(800+)는 승진·이직의 결정적 차별점입니다.',
       accent: '#1B3A6B',
       img: '/persona-worker.jpg',
     },
     {
       title: '프리랜서 · 크리에이터',
-      quote: '"클라이언트가 AI 역량 증명을 요구하기 시작했어요."',
-      detail: 'AI 파워유저는 일반 사용자 대비 생산성 6배 차이(OpenAI). TAPEX 점수 + 직무별 배지로 포트폴리오를 강화하세요.',
+      quote: '"단가를 높이고 싶은데, AI 잘 쓴다는 걸 어떻게 보여주죠?"',
+      detail: '프리랜서 마켓에서 AI 역량 인증은 곧 단가입니다. TAPEX 점수와 배지로 프로필에 신뢰를 더하세요.',
       accent: '#7C3AED',
       img: '/persona-freelancer.jpg',
     },
     {
       title: '기업 HR · 교육 담당',
-      quote: '"지원자 78%가 AI 활용 가능이라고 하는데, 검증 방법이 없었죠."',
-      detail: '국내 기업 69.2%가 채용 시 AI 역량 고려(대한상의). TAPEX API로 990점 척도의 객관 수치를 자동 검증하세요.',
+      quote: '"지원자 전원이 AI 쓸 줄 안다고 하는데, 진짜인지 알 수가 없어요."',
+      detail: '국내 기업 69.2%가 채용 시 AI 역량을 보지만 검증 수단이 없었습니다. TAPEX 점수로 지원자를 한눈에 비교하세요.',
       accent: '#059669',
       img: '/persona-hr.jpg',
     },
@@ -894,8 +893,8 @@ function PersonaSection() {
           letterSpacing: '-0.04em', fontFamily: FONT,
         }}>이런 분이 응시합니다</h2>
         <p style={{ textAlign: 'center', marginBottom: 56, fontSize: 16, color: '#94A3B8', fontWeight: 400, lineHeight: 1.8 }}>
-          전 세계 직장인 75%가 AI를 쓰는 시대.
-AI 역량을 증명해야 하는 모든 분께
+          &quot;AI 잘 쓴다&quot;는 말만으로는 부족한 시대.
+당신은 어떤 상황인가요?
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 20 }}>
@@ -1053,12 +1052,12 @@ function ExamCategorySection() {
           fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 12,
           letterSpacing: '-0.04em', fontFamily: FONT,
-        }}>6가지 역량으로 측정합니다</h2>
+        }}>실무에서 쓰는 AI 역량, 6가지로 측정합니다</h2>
         <p style={{ textAlign: 'center', fontSize: 16, color: '#94A3B8', marginBottom: 8, lineHeight: 1.8 }}>
-          사용할 AI 모델은 수험생이 자유롭게 선택
+          내가 쓰는 AI로 시험 봅니다 — ChatGPT, Claude, Gemini, Grok 중 선택
         </p>
         <p style={{ textAlign: 'center', fontSize: 14, color: '#64748B', marginBottom: 16, lineHeight: 1.8 }}>
-          GPT·Claude·Gemini 벤치마크를 설계한 AI 개발자 및 리서처들이 직접 제작한 시험
+          GPT·Claude·Gemini 벤치마크 설계자들이 직접 만든 문제
         </p>
         {/* LLM choice badge */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 56 }}>
@@ -1143,7 +1142,7 @@ function GradeSection() {
           fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', textAlign: 'center', marginBottom: 56,
           letterSpacing: '-0.04em', fontFamily: FONT,
-        }}>당신의 점수는 어디에?</h2>
+        }}>6단계 등급, 나는 어디쯤?</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 12 }}>
           {grades.map((g, i) => (
@@ -1243,7 +1242,7 @@ function EnterpriseSection() {
             color: '#0F172A', marginBottom: 28,
             letterSpacing: '-0.04em', lineHeight: 1.2,
             fontFamily: FONT,
-          }}>AI 잘 쓰는 사람,<br />TAPEX 점수로 찾으세요</h2>
+          }}>지원자의 AI 역량,<br />면접 전에 파악하세요</h2>
 
           <div style={{
             width: 40, height: 3,
@@ -1252,15 +1251,15 @@ function EnterpriseSection() {
           }} />
 
           <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 20 }}>
-            국내 기업 69.2%가 채용 시 AI 역량을 고려하지만, 객관적 검증 수단은 없었습니다.
+            &quot;AI 활용 가능&quot;이라고 쓴 이력서는 넘쳐나는데, 실제 역량을 알 수 없었습니다. 국내 기업 69.2%가 이 문제를 겪고 있습니다.
           </p>
           <p style={{ fontSize: isMobile ? 15 : 17, color: '#475569', lineHeight: 1.8, marginBottom: 36 }}>
-            &quot;AI 활용 가능&quot; 같은 모호한 자기소개 대신, TOEIC처럼 990점 척도의 객관적 수치로 지원자의 AI 역량을 즉시 평가하세요. 잡코리아·사람인 연동을 지원합니다.
+            TAPEX 점수를 채용 기준에 추가하면, 서류 단계에서 AI 역량을 객관적으로 비교할 수 있습니다. 잡코리아·사람인 자동 연동으로 별도 시스템 구축 없이 바로 도입 가능합니다.
           </p>
 
           {/* Feature checklist */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 36 }}>
-            {['990점 척도 객관적 평가', '잡코리아·사람인 자동 연동', 'API 기반 자동 검증'].map((text, i) => (
+            {['TOEIC처럼 990점 척도로 비교', '잡코리아·사람인 자동 연동', '단체 응시 시 30% 할인', 'API로 점수 자동 검증'].map((text, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 15, color: '#334155', fontWeight: 500 }}>
                 <div style={{
                   width: 20, height: 20, borderRadius: 6,
@@ -1466,9 +1465,9 @@ function CertificationBadgeSection() {
           fontSize: 'clamp(22px, 4vw, 38px)', fontWeight: 900,
           color: '#0F172A', marginBottom: 16,
           letterSpacing: '-0.04em', fontFamily: FONT,
-        }}>인증 배지를 받으세요</h2>
+        }}>점수를 따면, 배지가 됩니다</h2>
         <p style={{ fontSize: 16, color: '#94A3B8', marginBottom: 64, lineHeight: 1.8 }}>
-          LinkedIn 프로필에 인증 배지를 추가하세요
+          LinkedIn · 이력서 · 포트폴리오에 바로 추가할 수 있는 디지털 인증 배지
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap', marginBottom: 48 }}>
@@ -1572,7 +1571,7 @@ function CTASection() {
           color: '#fff', marginBottom: 24,
           letterSpacing: '-0.04em', lineHeight: 1.1,
           fontFamily: FONT,
-        }}>지금 바로 시작하세요.</h2>
+        }}>내 AI 실력, 몇 점인지 궁금하지 않으세요?</h2>
 
         <p style={{
           color: 'rgba(255,255,255,0.55)', fontSize: isMobile ? 15 : 17,
@@ -1581,10 +1580,9 @@ function CTASection() {
           marginBottom: 36,
           wordBreak: 'keep-all' as const,
         }}>
-          AI 역량 인증은 더 이상 선택이 아닙니다.<br />
-          WEF는 2030년까지 직무 역량의 39%가 바뀔 것이라 예측합니다.<br />
-          먼저 준비한 사람이 기회를 잡습니다.<br />
-          온라인 연습으로 지금 내 수준을 확인하고, 본시험으로 공식 인증받으세요.
+          2030년까지 직무 역량의 39%가 바뀝니다(WEF).<br />
+          온라인 연습으로 내 수준을 먼저 확인하고,<br />
+          본시험으로 공식 인증받으세요.
         </p>
 
         {/* Checklist */}
@@ -1627,7 +1625,7 @@ function CTASection() {
           }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-          >온라인 연습 시작 — ₩14,000</a>
+          >연습 시험 풀어보기 — ₩14,000</a>
           <a href="#register" style={{
             background: 'linear-gradient(135deg, #C9A84C 0%, #D4B65E 100%)',
             color: '#0A1628',
@@ -1643,7 +1641,7 @@ function CTASection() {
           }}
             onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(201,168,76,0.35)'; }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(201,168,76,0.25)'; }}
-          >본시험 접수 ₩79,000</a>
+          >본시험 접수하기 — ₩79,000</a>
         </div>
       </div>
     </section>
@@ -1680,7 +1678,7 @@ function FooterSection() {
           <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.02em', color: '#fff', display: 'inline-block', marginBottom: 16 }}>TAPEX</span>
           <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, marginBottom: 12 }}>
             Test of AI Prompt EXpertise<br />
-            글로벌 AI 활용 역량 인증 표준
+            AI 활용 능력을 점수로 증명하는 시험
           </p>
           <p style={{ fontSize: 13, color: '#475569' }}>contact@tapex.kr</p>
         </div>
